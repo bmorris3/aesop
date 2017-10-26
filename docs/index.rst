@@ -13,6 +13,7 @@ You can view the
    :maxdepth: 2
    :caption: Contents:
 
+   install
    api
 
 
