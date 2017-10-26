@@ -1,0 +1,14 @@
+name: aesop
+
+channels:
+    - astropy
+
+dependencies:
+    - astropy
+    - scipy
+    - matplotlib
+    - numpy
+    - specutils
+    - pip:
+        - sphinx-automodapi
+        - numpydoc
