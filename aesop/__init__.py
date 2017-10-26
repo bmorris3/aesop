@@ -15,3 +15,4 @@ if not _ASTROPY_SETUP_:
     from .utils import *
     from .masking import *
     from .activity import *
+    from .spectral_type import *
