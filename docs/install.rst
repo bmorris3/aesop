@@ -1,9 +1,10 @@
-.. include:: references.txt
-
 .. _install:
 
+.. include:: references.txt
+
+****************
 Installing aesop
-================
+****************
 
 Clone the ``aesop`` repository from GitHub, and go into the top-level ``aesop``
 directory::

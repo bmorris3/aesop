@@ -1,8 +1,11 @@
 
+.. _aesop:
+
 .. include:: references.txt
 
-Welcome to the aesop documentation!
-===================================
+*****
+aesop
+*****
 
 ``aesop`` is a data reduction toolkit for spectra from the Astrophysical
 Research Consortium (ARC) 3.5 m Telescope at Apache Point Observatory (APO).
