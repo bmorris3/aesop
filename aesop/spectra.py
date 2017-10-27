@@ -28,7 +28,7 @@ class Spectrum1D(object):
     """
     @u.quantity_input(wavelength=u.Angstrom)
     def __init__(self, wavelength=None, flux=None, name=None, mask=None,
-                 wcs=None, meta=dict()):
+                 wcs=None, meta=dict(), time=None):
         """
         Parameters
         ----------
@@ -50,6 +50,7 @@ class Spectrum1D(object):
         self.mask = mask
         self.wcs = wcs
         self.meta = meta
+        self.time = time
 
     def plot(self, ax=None, normed=False, flux_offset=0, **kwargs):
         """
@@ -106,6 +107,19 @@ class Spectrum1D(object):
             wavelength = wavelength * dispersion_unit
         return cls(wavelength=wavelength, flux=flux, name=name)
 
+    def __repr__(self):
+        wl_unit = u.Angstrom
+        min_wavelength = self.wavelength.min()
+        max_wavelength = self.wavelength.max()
+
+        if self.name is not None:
+            name_str = '"{0}" '.format(self.name)
+        else:
+            name_str = ''
+
+        return ("<Spectrum1D: {0}{1:.1f}-{2:.1f} {3}>"
+                .format(name_str, min_wavelength.to(wl_unit).value,
+                        max_wavelength.to(wl_unit).value, wl_unit))
 
 class EchelleSpectrum(object):
     """
@@ -362,6 +376,14 @@ class EchelleSpectrum(object):
 
         return rv_shift
 
+    def __repr__(self):
+        wl_unit = u.Angstrom
+        min_wavelength = min([s.wavelength.min() for s in self.spectrum_list])
+        max_wavelength = max([s.wavelength.max() for s in self.spectrum_list])
+        return ("<EchelleSpectrum: {0} orders, {1:.1f}-{2:.1f} {3}>"
+                .format(len(self.spectrum_list),
+                        min_wavelength.to(wl_unit).value,
+                        max_wavelength.to(wl_unit).value, wl_unit))
 
 def slice_spectrum(spectrum, min_wavelength, max_wavelength, norm=None):
     """
