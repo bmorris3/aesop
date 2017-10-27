@@ -17,9 +17,7 @@ Install ``aesop`` with::
     python setup.py install
 
 You can ensure that the package was installed successfully by running the tests
-from a Python interpreter with the following commands:
+from a Python interpreter with the following commands::
 
-.. code-block:: python
-
-    >>> import aesop
-    >>> aesop.test()
+    import aesop
+    aesop.test()
