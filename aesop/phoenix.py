@@ -7,7 +7,6 @@ from astropy.utils.data import download_file
 from astropy.io import fits
 import astropy.units as u
 
-from specutils import Spectrum1D
 
 __all__ = ['get_phoenix_model_spectrum', 'phoenix_model_temps']
 
@@ -73,7 +72,12 @@ def get_phoenix_model_spectrum(T_eff, log_g=4.5, cache=True):
          (57.362 - sigma_2))
     wavelengths_air = wavelengths_vacuum / f
 
-    spectrum = Spectrum1D.from_array(wavelengths_air, fluxes,
+    mask_negative_wavelengths = wavelengths_air > 0
+
+    from .spectra import Spectrum1D
+
+    spectrum = Spectrum1D.from_array(wavelengths_air[mask_negative_wavelengths],
+                                     fluxes[mask_negative_wavelengths],
                                      dispersion_unit=u.Angstrom)
 
     return spectrum

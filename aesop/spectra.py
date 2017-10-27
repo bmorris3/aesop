@@ -11,7 +11,6 @@ from astropy.io import fits
 import astropy.units as u
 from astropy.time import Time
 from specutils.io import read_fits
-from specutils import Spectrum1D as Spec1D
 from scipy.ndimage import gaussian_filter1d
 
 from .spectral_type import query_for_T_eff
@@ -23,13 +22,36 @@ __all__ = ["EchelleSpectrum", "slice_spectrum", "interpolate_spectrum",
            "cross_corr"]
 
 
-class Spectrum1D(Spec1D):
+class Spectrum1D(object):
     """
-    Inherits from the `~specutils.Spectrum1D` object.
+    Simple 1D spectrum object.
+    """
+    @u.quantity_input(wavelength=u.Angstrom)
+    def __init__(self, wavelength=None, flux=None, name=None, mask=None,
+                 wcs=None, meta=dict()):
+        """
+        Parameters
+        ----------
+        wavelength : `~numpy.ndarray`
+            Wavelengths
+        flux : `~numpy.ndarray`
+            Fluxes
+        name : str (optional)
+            Name for the spectrum
+        mask : `~numpy.ndarray` (optional)
+            Boolean mask of the same shape as ``flux``
+        wcs : `~specutils.Spectrum1DLookupWCS` (optional)
+            Store the WCS parameters
+        """
+        self.wavelength = wavelength
+        self.wavelength_unit = wavelength.unit
+        self.flux = flux
+        self.name = name
+        self.mask = mask
+        self.wcs = wcs
+        self.meta = meta
 
-    Adds a plot method.
-    """
-    def plot(self, ax=None, normed=True, flux_offset=0, **kwargs):
+    def plot(self, ax=None, normed=False, flux_offset=0, **kwargs):
         """
         Plot the spectrum.
 
@@ -54,6 +76,10 @@ class Spectrum1D(Spec1D):
         ax.plot(self.masked_wavelength, flux + flux_offset, **kwargs)
         ax.set_xlim([self.masked_wavelength.value.min(),
                      self.masked_wavelength.value.max()])
+        ax.set(xlabel='Wavelength [{0}]'.format(self.wavelength_unit),
+               ylabel='Flux')
+        if self.name is not None:
+            ax.set_title(self.name)
 
     @property
     def masked_wavelength(self):
@@ -69,13 +95,40 @@ class Spectrum1D(Spec1D):
         else:
             return self.flux
 
+    @classmethod
+    def from_specutils(cls, spectrum1d, name=None):
+        return cls(wavelength=spectrum1d.wavelength, flux=spectrum1d.flux,
+                   mask=spectrum1d._mask, name=name)
+
+    @classmethod
+    def from_array(cls, wavelength, flux, dispersion_unit=None, name=None):
+        if not hasattr(wavelength, 'unit') and dispersion_unit is not None:
+            wavelength = wavelength * dispersion_unit
+        return cls(wavelength=wavelength, flux=flux, name=name)
+
 
 class EchelleSpectrum(object):
     """
-    Echelle spectrum of one or more spectral orders
+    Echelle spectrum of one or more spectral orders.
     """
     def __init__(self, spectrum_list, header=None, name=None, fits_path=None,
                  time=None):
+        """
+
+        Parameters
+        ----------
+        spectrum_list : list of `~aesop.Spectrum1D` objects
+            List of `~aesop.Spectrum1D` objects for the spectra in each echelle
+            order.
+        header : `astropy.io.fits.header.Header` (optional)
+            FITS header object associated with the echelle spectrum.
+        name : str (optional)
+            Name of the target or a name for the spectrum
+        fits_path : str  (optional)
+            Path where FITS file was opened from.
+        time : `~astropy.time.Time` (optional)
+            Time at which the spectrum was taken
+        """
         self.spectrum_list = spectrum_list
         self.header = header
         self.name = name
@@ -98,12 +151,13 @@ class EchelleSpectrum(object):
         path : str
             Path to the FITS file
         """
-        spectrum_list = read_fits.read_fits_spectrum1d(path)
+        spectrum_list = [Spectrum1D.from_specutils(s)
+                         for s in read_fits.read_fits_spectrum1d(path)]
         header = fits.getheader(path)
 
         name = header.get('OBJNAME', None)
         return cls(spectrum_list, header=header, name=name, fits_path=path)
-    
+
     def get_order(self, order):
         """
         Get the spectrum from a specific spectral order
@@ -119,6 +173,9 @@ class EchelleSpectrum(object):
             One order from the echelle spectrum
         """
         return self.spectrum_list[order]
+
+    def __getitem__(self, index):
+        return self.spectrum_list[index]
 
     def fit_order(self, spectral_order, polynomial_order, plots=False):
         """
@@ -148,15 +205,14 @@ class EchelleSpectrum(object):
                                 spectrum.flux[mask_wavelengths], polynomial_order)
 
         if plots:
-            if spectral_order in [88, 89, 90, 91]:
-                plt.figure()
-                plt.plot(spectrum.wavelength, spectrum.flux)
-                plt.plot(spectrum.wavelength[mask_wavelengths],
-                         spectrum.flux[mask_wavelengths])
-                plt.plot(spectrum.wavelength,
-                         np.polyval(fit_params,
-                                    spectrum.wavelength - mean_wavelength))
-                plt.show()
+            plt.figure()
+            # plt.plot(spectrum.wavelength, spectrum.flux)
+            plt.plot(spectrum.wavelength[mask_wavelengths],
+                     spectrum.flux[mask_wavelengths])
+            plt.plot(spectrum.wavelength,
+                     np.polyval(fit_params,
+                                spectrum.wavelength - mean_wavelength))
+            plt.show()
         return fit_params
     
     def predict_continuum(self, spectral_order, fit_params):
@@ -183,7 +239,8 @@ class EchelleSpectrum(object):
         return flux_fit
 
     def continuum_normalize(self, standard_spectrum, polynomial_order,
-                            only_orders=None, plot_masking=False):
+                            only_orders=None, plot_masking=False,
+                            plot_fit=False):
         """
         Normalize the spectrum by a polynomial fit to the standard's
         spectrum.
@@ -194,6 +251,12 @@ class EchelleSpectrum(object):
             Spectrum of the standard object
         polynomial_order : int
             Fit the standard's spectrum with a polynomial of this order
+        only_orders : `~numpy.ndarray`
+            Only do the continuum normalization for these echelle orders.
+        plot_masking : bool
+            Plot the masked-out low S/N regions
+        plot_fit : bool
+            Plot the polynomial fit to the standard star spectrum
         """
 
         # Copy some attributes of the standard star's EchelleSpectrum object into
@@ -217,7 +280,8 @@ class EchelleSpectrum(object):
             #                                          polynomial_order)
 
             fit_params = standard_spectrum.fit_order(spectral_order,
-                                                     polynomial_order)
+                                                     polynomial_order,
+                                                     plots=plot_fit)
 
             # Normalize the target's flux with the continuum fit from the standard
             target_continuum_fit = self.predict_continuum(spectral_order,
@@ -226,8 +290,10 @@ class EchelleSpectrum(object):
 
             target_continuum_normalized_flux = target_order.flux / target_continuum_fit
 
-            normalized_target_spectrum = Spectrum1D(target_continuum_normalized_flux,
-                                                    target_order.wcs, mask=target_mask)
+            normalized_target_spectrum = Spectrum1D(wavelength=target_order.wavelength,
+                                                    flux=target_continuum_normalized_flux,
+                                                    wcs=target_order.wcs,
+                                                    mask=target_mask)
             normalized_target_spectrum.meta['normalization'] = target_continuum_fit
 
             # Replace this order's spectrum with the continuum-normalized one
@@ -350,7 +416,7 @@ def interpolate_spectrum(spectrum, new_wavelengths):
 
     sort_order = np.argsort(spectrum.masked_wavelength.to(u.Angstrom).value)
     sorted_spectrum_wavelengths = spectrum.masked_wavelength.to(u.Angstrom).value[sort_order]
-    sorted_spectrum_fluxes = spectrum.masked_flux.value[sort_order]
+    sorted_spectrum_fluxes = spectrum.masked_flux[sort_order]
 
     new_flux = np.interp(new_wavelengths.to(u.Angstrom).value,
                          sorted_spectrum_wavelengths,
@@ -381,10 +447,10 @@ def cross_corr(target_spectrum, model_spectrum, kernel_width):
         Wavelength shift required to shift the target spectrum to the rest-frame
     """
 
-    smoothed_model_flux = gaussian_filter1d(model_spectrum.masked_flux.value,
+    smoothed_model_flux = gaussian_filter1d(model_spectrum.masked_flux,
                                             kernel_width)
 
-    corr = np.correlate(target_spectrum.masked_flux.value,
+    corr = np.correlate(target_spectrum.masked_flux,
                         smoothed_model_flux, mode='same')
 
     max_corr_ind = np.argmax(corr)
