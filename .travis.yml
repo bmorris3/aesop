@@ -31,10 +31,11 @@ env:
         - NUMPY_VERSION=stable
         - ASTROPY_VERSION=stable
         - MAIN_CMD='python setup.py'
-        - SETUP_CMD='test'
+        - SETUP_CMD='test -V'
         - CONDA_CHANNELS='astropy astropy-ci-extras conda-forge'
         - CONDA_DEPENDENCIES='specutils astroquery matplotlib scipy'
         - EVENT_TYPE='pull_request push'
+        - ASTROPY_USE_SYSTEM_PYTEST=1
 
 
     matrix:
