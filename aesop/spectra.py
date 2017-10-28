@@ -176,8 +176,8 @@ class EchelleSpectrum(object):
         """
         Get the spectrum from a specific spectral order
 
-        Parameter
-        ---------
+        Parameters
+        ----------
         order : int
             Echelle order to return
 
