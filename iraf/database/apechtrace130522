@@ -1,0 +1,3852 @@
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 1 825. 1177.606
+	image	echtrace130522
+	aperture	1
+	beam	1
+	center	825. 1177.606
+	low	-824. -14.54853
+	high	826. 13.936
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.56036
+		-11.88158
+		62.95987
+		0.1368446
+		-0.00264545
+		-0.02179422
+		0.002737483
+		-0.02080746
+		0.09860387
+		0.10304
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 2 825. 1218.34
+	image	echtrace130522
+	aperture	2
+	beam	2
+	center	825. 1218.34
+	low	-824. -15.01687
+	high	826. 14.24628
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.41585
+		-11.89021
+		63.00266
+		0.1807334
+		0.08785686
+		0.05048624
+		-0.02162614
+		0.03945643
+		-0.01403566
+		0.1198298
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 3 825. 1258.312
+	image	echtrace130522
+	aperture	3
+	beam	3
+	center	825. 1258.312
+	low	-824. -14.88959
+	high	826. 14.4688
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.43191
+		-11.81975
+		63.03778
+		0.1620518
+		0.1713956
+		-0.07176771
+		-0.008346422
+		0.04163921
+		-0.08959004
+		-0.04487503
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 4 825. 1297.851
+	image	echtrace130522
+	aperture	4
+	beam	4
+	center	825. 1297.851
+	low	-824. -14.9839
+	high	826. 14.74689
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.43889
+		-11.76966
+		63.00063
+		0.146127
+		0.1854259
+		-0.06636773
+		-0.01902494
+		0.01815954
+		-0.10489
+		-0.1143758
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 5 825. 1336.497
+	image	echtrace130522
+	aperture	5
+	beam	5
+	center	825. 1336.497
+	low	-824. -14.55586
+	high	826. 15.44277
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.72626
+		-11.7028
+		62.98399
+		0.1302213
+		0.2038408
+		-0.03024743
+		0.06531619
+		0.1169501
+		-0.07044994
+		-0.08271983
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 6 825. 1375.948
+	image	echtrace130522
+	aperture	6
+	beam	6
+	center	825. 1375.948
+	low	-824. -14.65354
+	high	826. 14.02612
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		30.75243
+		-11.66502
+		62.937
+		0.1411037
+		0.217861
+		-0.09311259
+		0.08049981
+		0.1349022
+		0.07796522
+		-0.08473948
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 7 825. 1413.333
+	image	echtrace130522
+	aperture	7
+	beam	7
+	center	825. 1413.333
+	low	-824. -14.52716
+	high	826. 14.94641
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.43536
+		-11.55673
+		62.99474
+		0.1884612
+		0.2372216
+		-0.02635001
+		0.03107199
+		-0.004735226
+		0.06109869
+		-0.07963536
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 8 825. 1450.717
+	image	echtrace130522
+	aperture	8
+	beam	8
+	center	825. 1450.717
+	low	-824. -13.57189
+	high	826. 14.24711
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.67676
+		-11.45132
+		63.07167
+		0.1585546
+		0.04938097
+		0.008486076
+		0.02906393
+		-0.04408167
+		-0.1137073
+		-0.004898869
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 9 825. 1488.25
+	image	echtrace130522
+	aperture	9
+	beam	9
+	center	825. 1488.25
+	low	-824. -14.46131
+	high	826. 15.00421
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.43695
+		-11.28246
+		63.03159
+		0.1043803
+		0.1367408
+		0.03934478
+		-0.03843717
+		-0.07245968
+		-0.03977826
+		0.004464109
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 10 825. 1525.175
+	image	echtrace130522
+	aperture	10
+	beam	10
+	center	825. 1525.175
+	low	-824. -14.4018
+	high	826. 14.96405
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.50205
+		-11.10051
+		63.02519
+		0.1088084
+		0.165129
+		0.02701382
+		-0.001524229
+		0.01511407
+		-0.0118313
+		-0.001435989
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 11 825. 1561.945
+	image	echtrace130522
+	aperture	11
+	beam	11
+	center	825. 1561.945
+	low	-824. -14.10796
+	high	826. 14.63599
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.48104
+		-10.93002
+		63.02469
+		0.1144292
+		0.2035364
+		-0.006813928
+		0.01193232
+		0.01539129
+		-0.01205189
+		0.04762632
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 12 825. 1598.529
+	image	echtrace130522
+	aperture	12
+	beam	12
+	center	825. 1598.529
+	low	-824. -13.50133
+	high	826. 14.28416
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.45089
+		-10.74476
+		63.04052
+		0.1275635
+		0.205365
+		0.01914261
+		-0.0769999
+		-0.02287736
+		0.01834352
+		0.01093163
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 13 825. 1634.826
+	image	echtrace130522
+	aperture	13
+	beam	13
+	center	825. 1634.826
+	low	-824. -13.65456
+	high	826. 14.08638
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.53613
+		-10.50377
+		63.09346
+		0.1420594
+		0.1630385
+		-0.01541583
+		-0.05074159
+		2.763645E-5
+		-0.02148124
+		-0.03419859
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 14 825. 1671.005
+	image	echtrace130522
+	aperture	14
+	beam	14
+	center	825. 1671.005
+	low	-824. -13.72485
+	high	826. 14.156
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.58477
+		-10.23855
+		63.11338
+		0.1394446
+		0.1810488
+		0.03321939
+		-0.024122
+		-0.002524195
+		-0.01221962
+		-0.05198665
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 15 825. 1707.256
+	image	echtrace130522
+	aperture	15
+	beam	15
+	center	825. 1707.256
+	low	-824. -13.9261
+	high	826. 14.21091
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.45991
+		-9.957679
+		63.1217
+		0.09931794
+		0.1990961
+		0.06685856
+		-0.03674272
+		-0.02810408
+		-0.005400242
+		-0.02874384
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 16 825. 1743.294
+	image	echtrace130522
+	aperture	16
+	beam	16
+	center	825. 1743.294
+	low	-824. -13.92724
+	high	826. 14.36548
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.4796
+		-9.665438
+		63.16857
+		0.1182076
+		0.2102082
+		0.04263975
+		-0.02719713
+		0.00688833
+		-0.02954515
+		-0.003089842
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 17 825. 1779.352
+	image	echtrace130522
+	aperture	17
+	beam	17
+	center	825. 1779.352
+	low	-824. -13.9632
+	high	826. 14.33191
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.46119
+		-9.35088
+		63.22369
+		0.1259986
+		0.1775054
+		0.01897388
+		-0.05157838
+		-0.02319101
+		0.02821956
+		-0.03305329
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 18 825. 1815.323
+	image	echtrace130522
+	aperture	18
+	beam	18
+	center	825. 1815.323
+	low	-824. -13.94683
+	high	826. 14.37033
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.51953
+		-9.015276
+		63.20665
+		0.1181618
+		0.1708984
+		0.0326684
+		-0.04858335
+		-0.01979066
+		0.00384876
+		-0.01833797
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 19 825. 1851.316
+	image	echtrace130522
+	aperture	19
+	beam	19
+	center	825. 1851.316
+	low	-824. -13.91841
+	high	826. 14.40976
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.53178
+		-8.655787
+		63.23676
+		0.1082919
+		0.1650189
+		0.03917086
+		-0.0486649
+		-0.03273966
+		-0.01178645
+		-0.005538116
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 20 825. 1887.336
+	image	echtrace130522
+	aperture	20
+	beam	20
+	center	825. 1887.336
+	low	-824. -13.9246
+	high	826. 14.38917
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.55654
+		-8.300441
+		63.25121
+		0.08478462
+		0.1875535
+		0.0261075
+		-0.02861539
+		-0.04839529
+		0.03009502
+		0.005710493
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 21 825. 1923.389
+	image	echtrace130522
+	aperture	21
+	beam	21
+	center	825. 1923.389
+	low	-824. -13.94118
+	high	826. 14.4595
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.60294
+		-7.925222
+		63.31465
+		0.1013021
+		0.1915468
+		0.05061834
+		-0.05799854
+		-0.01524266
+		-0.0280552
+		-0.02899192
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 22 825. 1959.536
+	image	echtrace130522
+	aperture	22
+	beam	22
+	center	825. 1959.536
+	low	-824. -14.03853
+	high	826. 14.66447
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.61568
+		-7.506666
+		63.34454
+		0.1014904
+		0.1475777
+		0.03101363
+		-0.03894132
+		-0.03388925
+		0.01990486
+		-0.01658123
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 23 825. 1995.851
+	image	echtrace130522
+	aperture	23
+	beam	23
+	center	825. 1995.851
+	low	-824. -14.20245
+	high	826. 14.85818
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.57024
+		-7.094102
+		63.34779
+		0.097899
+		0.1828416
+		0.04971474
+		-0.04764589
+		-0.0420897
+		-0.005816204
+		-0.01556497
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 24 825. 2032.189
+	image	echtrace130522
+	aperture	24
+	beam	24
+	center	825. 2032.189
+	low	-824. -14.35682
+	high	826. 14.99745
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.59894
+		-6.650605
+		63.36245
+		0.09847105
+		0.1632909
+		0.03700693
+		-0.04523604
+		-0.04591376
+		0.002506809
+		-0.01675798
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 25 825. 2068.686
+	image	echtrace130522
+	aperture	25
+	beam	25
+	center	825. 2068.686
+	low	-824. -14.49624
+	high	826. 15.00997
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.58279
+		-6.20383
+		63.40147
+		0.08956206
+		0.1855853
+		0.04721991
+		-0.03787272
+		-0.0339973
+		0.01025055
+		0.01619528
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 26 825. 2105.224
+	image	echtrace130522
+	aperture	26
+	beam	26
+	center	825. 2105.224
+	low	-824. -14.40959
+	high	826. 14.9353
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.67124
+		-5.740756
+		63.46628
+		0.09193926
+		0.1830492
+		0.05072876
+		-0.05327255
+		-0.03187953
+		-0.01942015
+		-0.03752674
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 27 825. 2141.973
+	image	echtrace130522
+	aperture	27
+	beam	27
+	center	825. 2141.973
+	low	-824. -13.97411
+	high	826. 14.64886
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.71504
+		-5.239613
+		63.50966
+		0.09036803
+		0.1257505
+		0.05214591
+		0.0142264
+		-0.02557995
+		-0.04978873
+		-0.03666414
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 28 825. 2178.95
+	image	echtrace130522
+	aperture	28
+	beam	28
+	center	825. 2178.95
+	low	-824. -13.71178
+	high	826. 14.08258
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.71882
+		-4.736247
+		63.50111
+		0.0793569
+		0.1754166
+		0.05420416
+		-0.03933331
+		-0.0516903
+		-0.01418576
+		-0.01781874
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 29 825. 2216.138
+	image	echtrace130522
+	aperture	29
+	beam	29
+	center	825. 2216.138
+	low	-824. -14.36982
+	high	826. 15.07647
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.68344
+		-4.211328
+		63.51486
+		0.07562362
+		0.167581
+		0.04837854
+		-0.04512891
+		-0.03909369
+		0.0114151
+		-0.0228846
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 30 825. 2253.469
+	image	echtrace130522
+	aperture	30
+	beam	30
+	center	825. 2253.469
+	low	-824. -14.44241
+	high	826. 14.8697
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.70362
+		-3.676661
+		63.5653
+		0.07415377
+		0.180608
+		0.0551026
+		-0.03863625
+		-0.03992693
+		-0.02370249
+		-0.01088568
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 31 825. 2290.961
+	image	echtrace130522
+	aperture	31
+	beam	31
+	center	825. 2290.961
+	low	-824. -13.72806
+	high	826. 14.14734
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.78323
+		-3.123266
+		63.61863
+		0.07559337
+		0.1576057
+		0.06974561
+		-0.06009661
+		-0.06028534
+		0.01079141
+		-0.002492693
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 32 825. 2328.836
+	image	echtrace130522
+	aperture	32
+	beam	32
+	center	825. 2328.836
+	low	-824. -14.62358
+	high	826. 15.10603
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.72059
+		-2.547739
+		63.61918
+		0.07223332
+		0.1778687
+		0.07246639
+		-0.05084194
+		-0.04145382
+		-0.001669516
+		-0.02653435
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 33 825. 2366.819
+	image	echtrace130522
+	aperture	33
+	beam	33
+	center	825. 2366.819
+	low	-824. -13.66744
+	high	826. 14.13805
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.76036
+		-1.97106
+		63.64713
+		0.07052128
+		0.1740812
+		0.06950372
+		-0.05814487
+		-0.05687729
+		-0.02110362
+		-0.01863625
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 34 825. 2405.069
+	image	echtrace130522
+	aperture	34
+	beam	34
+	center	825. 2405.069
+	low	-824. -14.6222
+	high	826. 15.07853
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.77526
+		-1.37786
+		63.67796
+		0.06168495
+		0.1800982
+		0.06253005
+		-0.01981822
+		-0.06263372
+		0.0147456
+		-0.01685499
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 35 825. 2443.575
+	image	echtrace130522
+	aperture	35
+	beam	35
+	center	825. 2443.575
+	low	-824. -14.11616
+	high	826. 14.95972
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.7966
+		-0.7681707
+		63.72743
+		0.0693353
+		0.2003691
+		0.07011267
+		-0.07106102
+		-0.06509146
+		9.598053E-4
+		-0.02232462
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 36 825. 2482.308
+	image	echtrace130522
+	aperture	36
+	beam	36
+	center	825. 2482.308
+	low	-824. -13.73315
+	high	826. 14.48632
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.85854
+		-0.1555316
+		63.77749
+		0.06072425
+		0.1267878
+		0.08366427
+		-0.01611118
+		-0.06212943
+		-0.01927107
+		-0.01979144
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 37 825. 2521.505
+	image	echtrace130522
+	aperture	37
+	beam	37
+	center	825. 2521.505
+	low	-824. -14.70321
+	high	826. 14.95706
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.738
+		0.4907049
+		63.77461
+		0.07267403
+		0.1642365
+		0.08183295
+		-0.04998172
+		-0.05900293
+		-0.003696667
+		-0.03290642
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 38 825. 2560.797
+	image	echtrace130522
+	aperture	38
+	beam	38
+	center	825. 2560.797
+	low	-824. -14.642
+	high	826. 15.15293
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.79247
+		1.124402
+		63.79207
+		0.06604273
+		0.1772469
+		0.08452205
+		-0.0467623
+		-0.06723515
+		-0.005859575
+		-0.03409797
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 39 825. 2600.43
+	image	echtrace130522
+	aperture	39
+	beam	39
+	center	825. 2600.43
+	low	-824. -14.60459
+	high	826. 15.21106
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.80615
+		1.788063
+		63.8451
+		0.06410278
+		0.2069725
+		0.08090504
+		-0.08534272
+		-0.06501111
+		-0.02168916
+		-0.02075312
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 40 825. 2640.324
+	image	echtrace130522
+	aperture	40
+	beam	40
+	center	825. 2640.324
+	low	-824. -14.5327
+	high	826. 15.30966
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.85949
+		2.461859
+		63.89669
+		0.05657119
+		0.1633927
+		0.08820434
+		-0.05422524
+		-0.06607926
+		0.02354317
+		-0.01146803
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 41 825. 2680.544
+	image	echtrace130522
+	aperture	41
+	beam	41
+	center	825. 2680.544
+	low	-824. -14.62338
+	high	826. 15.31659
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.90711
+		3.141248
+		63.89953
+		0.04677257
+		0.1944878
+		0.09297705
+		-0.04592867
+		-0.06708603
+		0.01182947
+		-0.02317736
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 42 825. 2721.088
+	image	echtrace130522
+	aperture	42
+	beam	42
+	center	825. 2721.088
+	low	-824. -14.71471
+	high	826. 15.15237
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.92363
+		3.846657
+		63.92474
+		0.04734827
+		0.1713372
+		0.09185532
+		-0.05162534
+		-0.07774965
+		-0.01947181
+		-0.03595744
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 43 825. 2761.962
+	image	echtrace130522
+	aperture	43
+	beam	43
+	center	825. 2761.962
+	low	-824. -14.45783
+	high	826. 14.70924
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.93958
+		4.560169
+		63.96485
+		0.05339183
+		0.1931297
+		0.1085087
+		-0.04297717
+		-0.07450341
+		-0.03910194
+		-0.01460731
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 44 825. 2803.223
+	image	echtrace130522
+	aperture	44
+	beam	44
+	center	825. 2803.223
+	low	-824. -13.97613
+	high	826. 14.82106
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.90582
+		5.282077
+		64.02035
+		0.03810742
+		0.1717669
+		0.1007724
+		-0.06424049
+		-0.08958204
+		0.02781477
+		-0.02378791
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 45 825. 2844.758
+	image	echtrace130522
+	aperture	45
+	beam	45
+	center	825. 2844.758
+	low	-824. -14.7147
+	high	826. 15.29143
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.94218
+		6.018226
+		64.02271
+		0.04134808
+		0.1859262
+		0.0997232
+		-0.06300153
+		-0.07404456
+		-0.01163539
+		-0.01415446
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 46 825. 2886.607
+	image	echtrace130522
+	aperture	46
+	beam	46
+	center	825. 2886.607
+	low	-824. -13.5918
+	high	826. 14.3581
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.98618
+		6.772646
+		64.04752
+		0.04369805
+		0.1838874
+		0.1128875
+		-0.05120578
+		-0.08350848
+		-0.004503089
+		-0.02411528
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 47 825. 2928.891
+	image	echtrace130522
+	aperture	47
+	beam	47
+	center	825. 2928.891
+	low	-824. -14.74028
+	high	826. 15.23741
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		31.94777
+		7.544165
+		64.09287
+		0.04574702
+		0.2075555
+		0.105333
+		-0.06725711
+		-0.1020856
+		-0.02487369
+		-0.04783503
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 48 825. 2971.43
+	image	echtrace130522
+	aperture	48
+	beam	48
+	center	825. 2971.43
+	low	-824. -14.09373
+	high	826. 15.23788
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.01921
+		8.337192
+		64.1493
+		0.0414063
+		0.184602
+		0.1156043
+		-0.08511588
+		-0.06828868
+		0.007419511
+		-0.02729632
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 49 825. 3014.436
+	image	echtrace130522
+	aperture	49
+	beam	49
+	center	825. 3014.436
+	low	-824. -14.02239
+	high	826. 14.47253
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.0184
+		9.134486
+		64.15035
+		0.04328632
+		0.1777784
+		0.1253198
+		-0.0679138
+		-0.08286797
+		-0.02463951
+		-0.02261211
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 50 825. 3057.781
+	image	echtrace130522
+	aperture	50
+	beam	50
+	center	825. 3057.781
+	low	-824. -14.63797
+	high	826. 14.85079
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.03275
+		9.947956
+		64.17834
+		0.03335021
+		0.1626193
+		0.1246952
+		-0.0715605
+		-0.08171994
+		-0.01969935
+		-0.0194641
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 51 825. 3101.53
+	image	echtrace130522
+	aperture	51
+	beam	51
+	center	825. 3101.53
+	low	-824. -14.80232
+	high	826. 14.97148
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.01381
+		10.78079
+		64.20824
+		0.05786593
+		0.2142916
+		0.130164
+		-0.03363216
+		-0.08195322
+		-0.02432556
+		-0.0192911
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 52 825. 3145.65
+	image	echtrace130522
+	aperture	52
+	beam	52
+	center	825. 3145.65
+	low	-824. -14.80925
+	high	826. 14.89772
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.01245
+		11.60626
+		64.27773
+		0.007216912
+		0.1696989
+		0.09301574
+		-0.09535638
+		-0.1069224
+		-0.01794048
+		-0.05054165
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 53 825. 3190.089
+	image	echtrace130522
+	aperture	53
+	beam	53
+	center	825. 3190.089
+	low	-824. -14.48827
+	high	826. 14.6858
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.08931
+		12.45819
+		64.28872
+		0.04457538
+		0.1920864
+		0.1286604
+		-0.08369587
+		-0.07156419
+		-0.03737714
+		-0.0179765
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 54 825. 3234.953
+	image	echtrace130522
+	aperture	54
+	beam	54
+	center	825. 3234.953
+	low	-824. -13.82937
+	high	826. 14.93818
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.10126
+		13.31986
+		64.28012
+		0.0450243
+		0.1540115
+		0.1439197
+		-0.1014015
+		-0.07412282
+		-0.03967013
+		-0.01762719
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 55 825. 3280.237
+	image	echtrace130522
+	aperture	55
+	beam	55
+	center	825. 3280.237
+	low	-824. -14.57189
+	high	826. 15.49768
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.09891
+		14.19893
+		64.35579
+		0.04301196
+		0.2285504
+		0.09386338
+		-0.05526699
+		-0.1160203
+		-0.01665339
+		-0.03625062
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 56 825. 3325.879
+	image	echtrace130522
+	aperture	56
+	beam	56
+	center	825. 3325.879
+	low	-824. -14.66013
+	high	826. 14.82325
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.12781
+		15.09693
+		64.39581
+		0.04347174
+		0.1677327
+		0.1543206
+		-0.08574389
+		-0.07743376
+		-0.01187051
+		-0.04728265
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 57 825. 3371.996
+	image	echtrace130522
+	aperture	57
+	beam	57
+	center	825. 3371.996
+	low	-824. -14.42566
+	high	826. 15.46542
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.10748
+		15.98981
+		64.4194
+		0.02370196
+		0.1994163
+		0.131475
+		-0.08225115
+		-0.09939393
+		-0.02905617
+		-0.01426026
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 58 825. 3418.471
+	image	echtrace130522
+	aperture	58
+	beam	58
+	center	825. 3418.471
+	low	-824. -13.72588
+	high	826. 14.46792
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.12683
+		16.92136
+		64.44815
+		0.02775756
+		0.2349744
+		0.1288165
+		-0.04667845
+		-0.1133109
+		0.004020495
+		-0.03777631
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 59 825. 3465.413
+	image	echtrace130522
+	aperture	59
+	beam	59
+	center	825. 3465.413
+	low	-824. -14.72836
+	high	826. 15.08228
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.10104
+		17.86587
+		64.48193
+		0.03796234
+		0.2260556
+		0.1265065
+		-0.09858839
+		-0.09783535
+		-0.002147405
+		-0.00628518
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 60 825. 3512.684
+	image	echtrace130522
+	aperture	60
+	beam	60
+	center	825. 3512.684
+	low	-824. -14.63169
+	high	826. 15.4399
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.18002
+		18.82222
+		64.52405
+		0.01491296
+		0.1780089
+		0.1772669
+		-0.05568137
+		-0.1244216
+		-0.05392904
+		0.03938758
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 61 825. 3560.521
+	image	echtrace130522
+	aperture	61
+	beam	61
+	center	825. 3560.521
+	low	-824. -14.63011
+	high	826. 15.43101
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.13586
+		19.78376
+		64.52408
+		0.01519346
+		0.2192457
+		0.1390922
+		-0.0744143
+		-0.09690813
+		-0.03149213
+		0.004906015
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 62 825. 3608.747
+	image	echtrace130522
+	aperture	62
+	beam	62
+	center	825. 3608.747
+	low	-824. -14.697
+	high	826. 15.37711
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.12216
+		20.77678
+		64.5672
+		0.05480587
+		0.2243578
+		0.1715818
+		-0.08589999
+		-0.1007563
+		-0.0531353
+		0.01334494
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 63 825. 3657.384
+	image	echtrace130522
+	aperture	63
+	beam	63
+	center	825. 3657.384
+	low	-824. -14.75309
+	high	826. 15.09746
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.1451
+		21.76337
+		64.61239
+		0.01053897
+		0.2160913
+		0.139658
+		-0.09107558
+		-0.08577016
+		-0.02447842
+		-6.714215E-4
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 64 825. 3706.455
+	image	echtrace130522
+	aperture	64
+	beam	64
+	center	825. 3706.455
+	low	-824. -13.72691
+	high	826. 14.50362
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.203
+		22.77074
+		64.59758
+		0.03097883
+		0.222572
+		0.1396209
+		-0.08396671
+		-0.1309955
+		0.02810455
+		-0.03899719
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 65 825. 3755.997
+	image	echtrace130522
+	aperture	65
+	beam	65
+	center	825. 3755.997
+	low	-824. -14.3931
+	high	826. 15.57014
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.2083
+		23.79821
+		64.63865
+		0.02814486
+		0.2210462
+		0.1480775
+		-0.08159251
+		-0.1255717
+		-0.02477995
+		-0.008261126
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 66 825. 3805.981
+	image	echtrace130522
+	aperture	66
+	beam	66
+	center	825. 3805.981
+	low	-824. -14.34248
+	high	826. 14.79433
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.22707
+		24.8453
+		64.69621
+		0.01985115
+		0.2653621
+		0.127149
+		-0.07321459
+		-0.1423613
+		0.03671035
+		0.01753157
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 67 825. 3856.423
+	image	echtrace130522
+	aperture	67
+	beam	67
+	center	825. 3856.423
+	low	-824. -14.58255
+	high	826. 15.54971
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.26484
+		25.89849
+		64.70495
+		0.02505282
+		0.1934396
+		0.1870575
+		-0.09151421
+		-0.1399812
+		-0.0242136
+		0.05330674
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 68 825. 3907.309
+	image	echtrace130522
+	aperture	68
+	beam	68
+	center	825. 3907.309
+	low	-824. -13.99598
+	high	826. 15.4851
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.30289
+		26.96416
+		64.70881
+		0.02666244
+		0.2259094
+		0.1606786
+		-0.08944217
+		-0.1176075
+		-0.0109828
+		0.001407196
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 69 825. 3958.747
+	image	echtrace130522
+	aperture	69
+	beam	69
+	center	825. 3958.747
+	low	-824. -13.67605
+	high	826. 14.74274
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.2596
+		28.04661
+		64.75758
+		0.03223779
+		0.2368163
+		0.1593378
+		-0.1071862
+		-0.1231667
+		0.005507065
+		0.03063281
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 70 825. 4010.561
+	image	echtrace130522
+	aperture	70
+	beam	70
+	center	825. 4010.561
+	low	-824. -13.5501
+	high	826. 14.5394
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.31542
+		29.14143
+		64.81968
+		0.00102853
+		0.2150527
+		0.1839003
+		-0.09130605
+		-0.1196547
+		0.01743193
+		-0.00224775
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 71 825. 4062.918
+	image	echtrace130522
+	aperture	71
+	beam	71
+	center	825. 4062.918
+	low	-824. -13.79609
+	high	826. 15.13922
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.31581
+		30.24602
+		64.83929
+		0.006613786
+		0.2524905
+		0.1661229
+		-0.07596243
+		-0.1496612
+		0.02670476
+		-0.006921066
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 72 825. 4115.752
+	image	echtrace130522
+	aperture	72
+	beam	72
+	center	825. 4115.752
+	low	-824. -14.29488
+	high	826. 15.59362
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.305
+		31.3956
+		64.8517
+		0.04284573
+		0.225545
+		0.2034293
+		-0.127536
+		-0.1272884
+		-0.03955327
+		0.01506797
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 73 825. 4169.078
+	image	echtrace130522
+	aperture	73
+	beam	73
+	center	825. 4169.078
+	low	-824. -14.79484
+	high	826. 15.2662
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.27797
+		32.54228
+		64.90828
+		-0.005247163
+		0.2209901
+		0.1776081
+		-0.09005605
+		-0.1127532
+		0.01618033
+		0.0228986
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 74 825. 4222.791
+	image	echtrace130522
+	aperture	74
+	beam	74
+	center	825. 4222.791
+	low	-824. -13.70432
+	high	826. 14.97301
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.3768
+		33.70748
+		64.91041
+		0.02736658
+		0.1881206
+		0.2305959
+		-0.1338821
+		-0.1080496
+		-0.007928606
+		0.07745338
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 75 825. 4277.157
+	image	echtrace130522
+	aperture	75
+	beam	75
+	center	825. 4277.157
+	low	-824. -14.78987
+	high	826. 15.24035
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.31034
+		34.87422
+		64.96558
+		0.02567918
+		0.2464681
+		0.2070992
+		-0.1036112
+		-0.1305778
+		-0.03094122
+		0.02940855
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 76 825. 4331.797
+	image	echtrace130522
+	aperture	76
+	beam	76
+	center	825. 4331.797
+	low	-824. -14.28442
+	high	826. 15.68378
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.45575
+		36.07059
+		65.02389
+		0.002374815
+		0.2216633
+		0.1762227
+		-0.10638
+		-0.1189911
+		0.005833664
+		0.01901353
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 77 825. 4386.912
+	image	echtrace130522
+	aperture	77
+	beam	77
+	center	825. 4386.912
+	low	-824. -13.73229
+	high	826. 15.62998
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.64496
+		37.26488
+		65.07131
+		-0.01646754
+		0.2360404
+		0.2146068
+		-0.09728958
+		-0.1381205
+		0.02274676
+		0.06162142
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 78 825. 4442.833
+	image	echtrace130522
+	aperture	78
+	beam	78
+	center	825. 4442.833
+	low	-824. -13.74529
+	high	826. 15.24697
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.51521
+		38.49523
+		65.11043
+		0.01431164
+		0.2286048
+		0.205581
+		-0.08456133
+		-0.1870707
+		0.0410315
+		0.02475075
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 79 825. 4499.187
+	image	echtrace130522
+	aperture	79
+	beam	79
+	center	825. 4499.187
+	low	-824. -13.99258
+	high	826. 15.39706
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.47327
+		39.73346
+		65.18901
+		-0.02024987
+		0.2310194
+		0.193622
+		-0.1209731
+		-0.1402292
+		0.003245842
+		0.06039273
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 80 825. 4555.958
+	image	echtrace130522
+	aperture	80
+	beam	80
+	center	825. 4555.958
+	low	-824. -14.38678
+	high	826. 15.69712
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.54487
+		40.96662
+		65.20634
+		-0.01882701
+		0.221089
+		0.2154496
+		-0.1248192
+		-0.1010933
+		-0.007551355
+		0.1113375
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 81 825. 4613.362
+	image	echtrace130522
+	aperture	81
+	beam	81
+	center	825. 4613.362
+	low	-824. -14.8201
+	high	826. 15.18008
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.48899
+		42.25346
+		65.26789
+		-0.0289665
+		0.3050071
+		0.1148104
+		-0.01535673
+		-0.213526
+		0.07135414
+		-0.002660701
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 82 825. 4671.161
+	image	echtrace130522
+	aperture	82
+	beam	82
+	center	825. 4671.161
+	low	-824. -13.98697
+	high	826. 15.45482
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.55919
+		43.56209
+		65.32891
+		-0.009133494
+		0.2734884
+		0.1713171
+		-0.05578208
+		-0.09867547
+		0.05211477
+		0.07032135
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 83 825. 4729.631
+	image	echtrace130522
+	aperture	83
+	beam	83
+	center	825. 4729.631
+	low	-824. -14.84903
+	high	826. 14.99374
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.50963
+		44.83718
+		65.37695
+		-0.02653713
+		0.2696384
+		0.14507
+		-0.0851908
+		-0.2040976
+		0.04790272
+		-0.03393279
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 84 825. 4788.594
+	image	echtrace130522
+	aperture	84
+	beam	84
+	center	825. 4788.594
+	low	-824. -14.79022
+	high	826. 15.46981
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.47145
+		46.18364
+		65.4198
+		-0.003193502
+		0.269697
+		0.1674936
+		-0.07085766
+		-0.1899733
+		0.0733518
+		0.02054059
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 85 825. 4847.991
+	image	echtrace130522
+	aperture	85
+	beam	85
+	center	825. 4847.991
+	low	-824. -14.50282
+	high	826. 15.62745
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.55848
+		47.53024
+		65.5544
+		-0.03716595
+		0.3597586
+		0.1411553
+		0.008139164
+		-0.1223925
+		0.02915154
+		0.058431
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 86 825. 4907.887
+	image	echtrace130522
+	aperture	86
+	beam	86
+	center	825. 4907.887
+	low	-824. -14.3946
+	high	826. 15.75739
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.6764
+		48.84613
+		65.53553
+		-0.06872289
+		0.3152873
+		0.1190785
+		0.0268445
+		-0.1458825
+		0.1219726
+		0.05146924
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 87 825. 4968.55
+	image	echtrace130522
+	aperture	87
+	beam	87
+	center	825. 4968.55
+	low	-824. -14.76535
+	high	826. 15.57591
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.58665
+		50.20139
+		65.635
+		-0.1531612
+		0.3594539
+		0.0265786
+		-0.02885354
+		-0.2435424
+		0.04324927
+		0.02684397
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 88 825. 5029.607
+	image	echtrace130522
+	aperture	88
+	beam	88
+	center	825. 5029.607
+	low	-824. -14.88664
+	high	826. 15.03175
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.62898
+		51.6925
+		65.63284
+		-0.03598065
+		0.2285043
+		0.142583
+		-0.07644054
+		-0.1457287
+		0.03084671
+		0.03668026
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 89 825. 5091.175
+	image	echtrace130522
+	aperture	89
+	beam	89
+	center	825. 5091.175
+	low	-824. -14.06223
+	high	826. 15.7295
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.76318
+		53.06324
+		65.73801
+		-0.02641105
+		0.3124427
+		0.2175465
+		-0.06613281
+		-0.03740287
+		0.06399103
+		0.1121183
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 90 825. 5153.433
+	image	echtrace130522
+	aperture	90
+	beam	90
+	center	825. 5153.433
+	low	-824. -14.9192
+	high	826. 15.17091
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.77706
+		54.48189
+		65.88698
+		-0.06198655
+		0.3589988
+		0.1372178
+		-0.06707503
+		-0.06421516
+		0.01006065
+		0.1181048
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 91 825. 5216.14
+	image	echtrace130522
+	aperture	91
+	beam	91
+	center	825. 5216.14
+	low	-824. -14.52773
+	high	826. 15.78544
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.86895
+		55.98773
+		65.94585
+		-0.1038036
+		0.3239979
+		0.1328358
+		-0.1219083
+		-0.1342478
+		-0.0364906
+		0.09718688
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 92 825. 5279.475
+	image	echtrace130522
+	aperture	92
+	beam	92
+	center	825. 5279.475
+	low	-824. -14.22403
+	high	826. 15.87415
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1649.
+		33.07847
+		57.90952
+		66.19016
+		0.2235961
+		0.4898765
+		0.4386864
+		0.1683213
+		0.04850194
+		0.2459987
+		0.08351707
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 93 825. 5343.429
+	image	echtrace130522
+	aperture	93
+	beam	93
+	center	825. 5343.429
+	low	-824. -14.18265
+	high	826. 15.72836
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.92187
+		59.03193
+		66.0535
+		0.03627562
+		0.3714896
+		0.1935229
+		0.09666527
+		-0.03414878
+		0.2571046
+		0.1814708
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 94 825. 5408.003
+	image	echtrace130522
+	aperture	94
+	beam	94
+	center	825. 5408.003
+	low	-824. -14.49987
+	high	826. 15.80071
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.
+		32.91395
+		60.46754
+		66.10031
+		-0.1026777
+		0.3765772
+		0.1533663
+		9.859264E-4
+		0.05978468
+		-0.0260881
+		0.3093582
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 95 825. 5473.021
+	image	echtrace130522
+	aperture	95
+	beam	95
+	center	825. 5473.021
+	low	-824. -14.96386
+	high	826. 15.4489
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1649.
+		33.16609
+		62.25787
+		66.28426
+		-0.2371793
+		0.2691026
+		0.05424942
+		-0.1053599
+		-0.05746953
+		0.05293271
+		0.141231
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 96 825. 5538.805
+	image	echtrace130522
+	aperture	96
+	beam	96
+	center	825. 5538.805
+	low	-824. -14.53516
+	high	826. 15.38159
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1649.
+		33.14233
+		63.80358
+		66.53355
+		-0.2548027
+		0.3450441
+		0.1430758
+		-0.23007
+		0.009809956
+		-0.1642118
+		0.03864413
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 97 825. 5605.15
+	image	echtrace130522
+	aperture	97
+	beam	97
+	center	825. 5605.15
+	low	-824. -14.89699
+	high	826. 15.33509
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1646.
+		32.80517
+		64.88139
+		66.00674
+		-0.4006923
+		0.07243301
+		-0.1181672
+		-0.2666724
+		-0.198879
+		-0.01475003
+		0.08592732
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 98 825. 5671.917
+	image	echtrace130522
+	aperture	98
+	beam	98
+	center	825. 5671.917
+	low	-824. -14.55696
+	high	826. 15.94006
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1643.
+		32.78884
+		65.84464
+		66.1278
+		-0.4022059
+		0.1963786
+		0.1416099
+		-0.3259365
+		0.1012959
+		-0.07329662
+		0.1870052
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 99 825. 5739.468
+	image	echtrace130522
+	aperture	99
+	beam	99
+	center	825. 5739.468
+	low	-824. -14.27606
+	high	826. 15.87289
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1577.
+		27.42575
+		57.56638
+		60.48224
+		0.02406744
+		-0.08815046
+		0.1958303
+		0.008040236
+		-0.5178775
+		0.3478817
+		-0.2382052
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 100 825. 5807.477
+	image	echtrace130522
+	aperture	100
+	beam	100
+	center	825. 5807.477
+	low	-824. -14.32965
+	high	826. 16.0243
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1647.667
+		33.18181
+		70.1565
+		66.38096
+		-0.04907179
+		0.1128372
+		0.1025171
+		-0.1495992
+		-0.4026805
+		0.1834965
+		-0.3682905
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 101 825. 5876.451
+	image	echtrace130522
+	aperture	101
+	beam	101
+	center	825. 5876.451
+	low	-824. -15.17621
+	high	826. 15.88442
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1608.333
+		29.67428
+		65.36787
+		63.09531
+		-0.54603
+		-0.1541167
+		-0.8069617
+		-0.2753395
+		-1.151134
+		0.03928859
+		-0.4276147
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 102 825. 5945.6
+	image	echtrace130522
+	aperture	102
+	beam	102
+	center	825. 5945.6
+	low	-824. -15.17463
+	high	826. 15.15671
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1553.
+		25.77828
+		58.38264
+		59.73132
+		0.04638555
+		0.4435937
+		0.9157639
+		-0.2162539
+		0.7340199
+		-0.1915981
+		0.3866256
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 103 825. 6015.581
+	image	echtrace130522
+	aperture	103
+	beam	103
+	center	825. 6015.581
+	low	-824. -14.89639
+	high	826. 16.32721
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		3.
+		1644.
+		33.32705
+		74.7452
+		67.68915
+		0.5251407
+		1.276802
+		1.292596
+		0.4967295
+		1.013025
+		0.5043254
+		0.5264758
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 104 825. 6086.394
+	image	echtrace130522
+	aperture	104
+	beam	104
+	center	825. 6086.394
+	low	-824. -15.3841
+	high	826. 14.97301
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		4.
+		1517.
+		22.52504
+		56.49504
+		56.31607
+		0.1217109
+		-0.2930139
+		0.4066797
+		-0.3368425
+		-0.4940053
+		-0.1968111
+		-0.5006309
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 105 825. 6157.577
+	image	echtrace130522
+	aperture	105
+	beam	105
+	center	825. 6157.577
+	low	-824. -15.09975
+	high	826. 15.29496
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		144.3333
+		1643.
+		35.2625
+		87.1952
+		57.0423
+		0.1991692
+		1.551083
+		0.1704861
+		0.2913291
+		-0.05691066
+		0.2738751
+		0.1332669
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 106 825. 6229.458
+	image	echtrace130522
+	aperture	106
+	beam	106
+	center	825. 6229.458
+	low	-824. -15.28446
+	high	826. 15.33251
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		165.
+		1577.
+		29.48063
+		78.24829
+		49.71799
+		-1.301938
+		0.2099715
+		-0.8287778
+		-0.3012513
+		-0.3513069
+		0.03802633
+		0.008247558
+
+# Wed 16:40:21 22-May-2013
+begin	aperture echtrace130522 107 825. 6302.
+	image	echtrace130522
+	aperture	107
+	beam	107
+	center	825. 6302.
+	low	-824. -15.85406
+	high	826. 16.30057
+	background
+		xmin -18.
+		xmax 18.
+		function chebyshev
+		order 1
+		sample -18:-15,15:18
+		naverage 1
+		niterate 0
+		low_reject 3.
+		high_reject 3.
+		grow 0.
+	axis	2
+	curve	14
+		2.
+		10.
+		167.
+		1643.
+		36.36993
+		91.52453
+		55.58253
+		0.02193933
+		1.128577
+		0.183732
+		-0.03614857
+		0.06140521
+		-0.08031945
+		-0.4114628
+
