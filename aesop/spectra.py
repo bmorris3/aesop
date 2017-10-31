@@ -19,7 +19,7 @@ from .masking import get_spectrum_mask
 from .activity import true_h_centroid, true_k_centroid
 
 __all__ = ["EchelleSpectrum", "slice_spectrum", "interpolate_spectrum",
-           "cross_corr"]
+           "cross_corr", "Spectrum1D"]
 
 
 class Spectrum1D(object):
