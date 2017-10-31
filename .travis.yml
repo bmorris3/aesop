@@ -51,7 +51,7 @@ matrix:
     include:
         # Try MacOS X
         - os: osx
-          env: SETUP_CMD='test'
+          env: SETUP_CMD='test --remote-data'
 
         # Check for sphinx doc build warnings - we do this first because it
         # may run for a long time
@@ -62,6 +62,7 @@ matrix:
         - os: linux
           env: ASTROPY_VERSION=development
                EVENT_TYPE='pull_request push cron'
+               SETUP_CMD='--remote-data'
 
         - os: linux
           env: PYTHON_VERSION=2.7 ASTROPY_VERSION=lts
