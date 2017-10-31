@@ -1,6 +1,6 @@
-.. _getting_started:
-
 .. include:: references.txt
+
+.. _getting_started:
 
 ***************
 Getting started
@@ -16,6 +16,8 @@ Contents
 
 Opening example spectra
 -----------------------
+
+If you want to do this with your own data, make sure it is reduced by following the steps in :ref:`iraf`
 
 Example ARCES spectra are available online for you to work with. You can
 download them via Python like this:
