@@ -77,7 +77,8 @@ def test_continuum_norm():
 
     # Make sure that the continuum normalization is always good to 2%
     polynomial_order = 8
-    target_spectrum.continuum_normalize(standard_spectrum, polynomial_order)
+    target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+                                                      polynomial_order)
 
     for order in target_spectrum.spectrum_list:
         assert abs(np.median(order.flux) - 1) < 0.02
