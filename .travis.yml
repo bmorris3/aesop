@@ -31,7 +31,7 @@ env:
         - NUMPY_VERSION=stable
         - ASTROPY_VERSION=stable
         - MAIN_CMD='python setup.py'
-        - SETUP_CMD='test -V'
+        - SETUP_CMD='test -V --remote-data'
         - CONDA_CHANNELS='astropy astropy-ci-extras conda-forge'
         - CONDA_DEPENDENCIES='specutils astroquery matplotlib scipy'
         - EVENT_TYPE='pull_request push'
@@ -51,7 +51,7 @@ matrix:
     include:
         # Try MacOS X
         - os: osx
-          env: SETUP_CMD='test --remote-data'
+          env: SETUP_CMD='test -V --remote-data'
 
         # Check for sphinx doc build warnings - we do this first because it
         # may run for a long time
@@ -62,7 +62,6 @@ matrix:
         - os: linux
           env: ASTROPY_VERSION=development
                EVENT_TYPE='pull_request push cron'
-               SETUP_CMD='--remote-data'
 
         - os: linux
           env: PYTHON_VERSION=2.7 ASTROPY_VERSION=lts
