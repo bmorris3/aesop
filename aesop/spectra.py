@@ -174,6 +174,7 @@ class Spectrum1D(object):
                 .format(name_str, min_wavelength.to(wl_unit).value,
                         max_wavelength.to(wl_unit).value, wl_unit))
 
+
 class EchelleSpectrum(object):
     """
     Echelle spectrum of one or more spectral orders.
@@ -207,7 +208,10 @@ class EchelleSpectrum(object):
         self.model_spectrum = None
 
         if header is not None and time is None:
-            time = Time(header['JD'], format='jd')
+            if 'JD' in header:
+                time = Time(header['JD'], format='jd')
+            elif 'DATE-OBS' in header:
+                time = Time(header['DATE-OBS'], format='isot', scale='tai')
 
         self.time = time
 
