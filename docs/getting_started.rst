@@ -27,8 +27,8 @@ download them via Python like this:
     >>> target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
     >>> spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
 
-    >>> target_path = download_file(target_url, show_progress=False)
-    >>> standard_path = download_file(spectroscopic_standard_url, show_progress=False)
+    >>> target_path = download_file(target_url, show_progress=False) # doctest: +REMOTE_DATA
+    >>> standard_path = download_file(spectroscopic_standard_url, show_progress=False) # doctest: +REMOTE_DATA
 
 This will download temporary copies of a Kepler target, KIC 8462852, and
 spectroscopic standard O star BD+28 4211. We first create an
