@@ -13,7 +13,7 @@ You can view the
 `source code and submit issues via GitHub <https://github.com/bmorris3/aesop>`_.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1 
    :caption: Contents:
 
    install

@@ -75,8 +75,8 @@ make a quick plot of the 32nd order of the target's echelle spectrum:
     target_spectrum = EchelleSpectrum.from_fits(target_path)
     standard_spectrum = EchelleSpectrum.from_fits(standard_path)
 
-    order32 = target_spectrum[32]
-    order32.plot()
+    order73 = target_spectrum[73]
+    order73.plot()
 
     import matplotlib.pyplot as plt
     plt.show()
