@@ -53,12 +53,12 @@ The `~aesop.EchelleSpectrum` object behaves a bit like a Python list -- it
 supports indexing, where the index counts the order number, starting with index
 zero for the order with the shortest wavelengths. Elements of the
 `~aesop.EchelleSpectrum` are `~aesop.Spectrum1D` objects. Suppose you want to
-make a quick plot of the 32nd order of the target's echelle spectrum:
+make a quick plot of the 73rd order of the target's echelle spectrum:
 
 .. code-block:: python
 
-    order32 = target_spectrum[32]
-    order32.plot()
+    order73 = target_spectrum[73]
+    order73.plot()
 
 .. plot::
 
