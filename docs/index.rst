@@ -17,6 +17,7 @@ You can view the
    :caption: Contents:
 
    install
+   iraf
    getting_started
    api
 
