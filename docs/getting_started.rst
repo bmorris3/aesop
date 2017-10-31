@@ -1,6 +1,6 @@
-.. _getting_started:
-
 .. include:: references.txt
+
+.. _getting_started:
 
 ***************
 Getting started

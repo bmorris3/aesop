@@ -1,6 +1,6 @@
-.. _iraf:
-
 .. include:: references.txt
+
+.. _iraf:
 
 ****
 IRAF
