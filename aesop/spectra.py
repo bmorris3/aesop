@@ -45,7 +45,7 @@ class Spectrum1D(object):
         """
         self.wavelength = wavelength
         self.wavelength_unit = wavelength.unit
-        self.flux = flux
+        self.flux = flux if hasattr(flux, 'unit') else u.Quantity(flux)
         self.name = name
         self.mask = mask
         self.wcs = wcs
