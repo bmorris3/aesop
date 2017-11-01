@@ -79,14 +79,14 @@ class Spectrum1D(object):
         self.time = time
         self.continuum_normalized = continuum_normalized
 
-    def flux_calibrate(self, fluxed_spec, polynomial_order, plots=False):
+    def flux_calibrate_parameters(self, flux_calibrated_spectrum, polynomial_order, plots=False):
         """
         Interpolate high-res spectrum to low-res flux calibrated spectrum, then fit
         the ratio with a polynomial to flux calibrate. Returns polynomial coefficients
 
         Parameters
         ----------
-        fluxed_spec : `~aesop.Spectrum1D`
+        flux_calibrated_spectrum : `~aesop.Spectrum1D`
             Already flux calibrated low-resolution spectrum of the same object
         polynomial_order : int
             Order of polynomial fit
@@ -99,19 +99,22 @@ class Spectrum1D(object):
             Best-fit polynomial coefficients
         """
 
-        int_spectrum = interpolate_spectrum(spectrum=self, new_wavelengths=fluxed_spec.wavelength)
+        int_spectrum = interpolate_spectrum(spectrum=self, new_wavelengths=flux_calibrated_spectrum.wavelength)
 
-        sens_data = fluxed_spec.flux/int_spectrum.flux
+        sens_data = flux_calibrated_spectrum.flux/int_spectrum.flux
 
-        fit_params = np.polyfit(int_spectrum.wavelength,sens_data, polynomial_order)
+        fit_params = np.polyfit(int_spectrum.wavelength, sens_data, polynomial_order)
 
         if plots:
             plt.figure()
             plt.plot(int_spectrum.wavelength,
-                     sens_data)
+                     sens_data,label='Data')
             plt.plot(int_spectrum.wavelength,
                      np.polyval(fit_params,
-                                int_spectrum.wavelength))
+                                int_spectrum.wavelength),label='Fit')
+            plt.gca().set(xlabel='Wavelength [{0}]'.format(self.wavelength_unit),
+               ylabel='1/Sensitivity')
+            plt.legend()
             plt.show()
 
         return fit_params
