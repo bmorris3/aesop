@@ -174,6 +174,44 @@ class Spectrum1D(object):
                 .format(name_str, min_wavelength.to(wl_unit).value,
                         max_wavelength.to(wl_unit).value, wl_unit))
 
+    def mask_outliers(self, reject_negative=True, mad_clip=True,
+                      mad_outlier_factor=3):
+        """
+        Identify outliers, update the ``mask`` attribute.
+
+        Parameters
+        ----------
+        reject_negative : bool (optional)
+            Reject fluxes < -0.5. Default is `True`.
+        mad_clip : bool
+            Reject fluxes more than ``mad_outlier_factor`` times the median
+            absolute deviation (MAD) from the continuum flux.
+        mad_outlier_factor : float
+            MAD-masking factor -- fluxes more than ``mad_outlier_factor`` away
+            from the continuum flux will be masked.
+        """
+        outliers = np.zeros_like(self.flux.value).astype(bool)
+
+        if mad_clip:
+            # Compute binned mean flux for outlier masking
+            bs = binned_statistic(self.wavelength.value, self.flux.value,
+                                  bins=300, statistic='median')
+            bincenters = 0.5 * (bs.bin_edges[1:] + bs.bin_edges[:-1])
+            binmedians = bs.statistic
+            median_interp = np.interp(self.wavelength.value,
+                                      bincenters, binmedians)
+
+            mad = mad_std(abs(median_interp - self.flux.value))
+
+            outliers |= (self.flux.value > mad_outlier_factor * mad +
+                         np.median(self.flux.value))
+
+        if reject_negative:
+            # Also mask outliers that are very low flux
+            outliers |= self.flux.value < -0.5
+
+        self.mask |= outliers
+
 
 class EchelleSpectrum(object):
     """
@@ -516,7 +554,7 @@ class EchelleSpectrum(object):
                         min_wavelength.to(wl_unit).value,
                         max_wavelength.to(wl_unit).value, wl_unit))
 
-    def to_Spectrum1D(self, mad_outlier_factor=3):
+    def to_Spectrum1D(self):
         """
         Convert this echelle spectrum into a simple 1D spectrum.
 
@@ -589,25 +627,9 @@ class EchelleSpectrum(object):
         nonoverlapping_wavelengths = (np.concatenate(nonoverlapping_wavelengths)
                                       * dispersion_unit)
 
-        # Compute binned mean flux for outlier masking
-        bs = binned_statistic(nonoverlapping_wavelengths, nonoverlapping_fluxes,
-                              bins=300, statistic='median')
-        bincenters = 0.5 * (bs.bin_edges[1:] + bs.bin_edges[:-1])
-        binmedians = bs.statistic
-        median_interp = np.interp(nonoverlapping_wavelengths,
-                                  bincenters, binmedians)
-
-        mad = mad_std(abs(median_interp - nonoverlapping_fluxes))
-
-        outliers = (nonoverlapping_fluxes > mad_outlier_factor * mad +
-                    np.median(nonoverlapping_fluxes))
-
-        # Also mask outliers that are very low flux
-        outliers |= nonoverlapping_fluxes < -0.5
-
         return Spectrum1D(wavelength=nonoverlapping_wavelengths,
                           flux=nonoverlapping_fluxes, continuum_normalized=True,
-                          mask=np.logical_not(outliers),
+                          mask=np.zeros_like(nonoverlapping_fluxes).astype(bool),
                           meta=dict(header=self.header))
 
 
