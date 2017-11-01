@@ -79,6 +79,47 @@ class Spectrum1D(object):
         self.time = time
         self.continuum_normalized = continuum_normalized
 
+    def flux_calibrate(self, fluxed_spec, polynomial_order, plots=False):
+        """
+        Interpolate high-res spectrum to low-res flux calibrated spectrum, then fit
+        the ratio with a polynomial to flux calibrate. Returns polynomial coefficients
+
+        Parameters
+        ----------
+        fluxed_spec : `~aesop.Spectrum1D`
+            Already flux calibrated low-resolution spectrum of the same object
+        polynomial_order : int
+            Order of polynomial fit
+        plots : bool
+            If True, plot the sensitivity data and the fit
+
+        Returns
+        -------
+        fit_params : `~numpy.ndarray`
+            Best-fit polynomial coefficients
+        """
+
+        int_spectrum = interpolate_spectrum(spectrum=self, new_wavelengths=fluxed_spec.wavelength)
+
+        sens_data = fluxed_spec.flux/int_spectrum.flux
+
+        fit_params = np.polyfit(int_spectrum.wavelength,sens_data, polynomial_order)
+
+        if plots:
+            plt.figure()
+            plt.plot(int_spectrum.wavelength,
+                     sens_data)
+            plt.plot(int_spectrum.wavelength,
+                     np.polyval(fit_params,
+                                int_spectrum.wavelength))
+            plt.show()
+
+        return fit_params
+
+
+
+
+
     def plot(self, ax=None, normed=False, flux_offset=0, **kwargs):
         """
         Plot the spectrum.

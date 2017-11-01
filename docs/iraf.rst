@@ -64,6 +64,7 @@ Next, open an xgterm by doing ``xgterm``, and do ::
     cl
     cl < ReduceARCES.cl
 
-This will extract the spectrum from your data.
+This will extract the spectrum from your data. When prompted to edit the parameters of the tasks that ``ReduceARCES.cl``
+uses, simply do ``:q``. You'll have to do this twice at the beginning of the reduction and a few more times in the middle.
 
 Now in order to use ``aesop``, follow the tutorial in :ref:`getting_started`
