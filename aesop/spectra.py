@@ -119,9 +119,32 @@ class Spectrum1D(object):
 
         return fit_params
 
+    def flux_calibrate(self, flux_calibrated_spectrum, polynomial_order):
+        """
+        Calculates coefficients of sensitivity function, then returns flux-calibrated spectrum
 
+        Parameters
+        ----------
+        flux_calibrated_spectrum : `~aesop.Spectrum1D`
+            Already flux calibrated low-resolution spectrum of the same object
+        polynomial_order : int
+            Order of polynomial fit
 
+        Returns
+        -------
+        transformed_spectrum : `~aesop.Spectrum1D`
+            Spectrum transformed with sensitivity polynomial
+        """
 
+        sens_params = flux_calibrate_parameters(flux_calibrated_spectrum, polynomial_order)
+
+        sens = np.polyval(sens_params,self.wavelength)
+
+        calibrated_flux = self.flux * sens
+
+        transformed_spectrum = Spectrum1D(wavelength=self.wavelength, flux=calibrated_flux)
+
+        return transformed_spectrum
 
     def plot(self, ax=None, normed=False, flux_offset=0, **kwargs):
         """
