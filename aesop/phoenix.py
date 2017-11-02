@@ -113,7 +113,8 @@ def get_phoenix_model_spectrum(T_eff, log_g=4.5, z=0, cache=True):
 
 
 def download_phoenix_spectrum_grid(path, teff_min, teff_max, log_g_min,
-                                   log_g_max, z_min, z_max):
+                                   log_g_max, z_min, z_max, wavelength_min=3000,
+                                   wavelength_max=10000):
     """
     Get a grid of PHOENIX model spectra.
 
@@ -131,6 +132,10 @@ def download_phoenix_spectrum_grid(path, teff_min, teff_max, log_g_min,
         Minimum metallicity (inclusive)
     z_max : float
        Maximum metallicity (inclusive)
+    wavelength_min : float
+        Minimum wavelength to save (angstrom)
+    wavelength_max : float
+        Maximum wavelength to save (angstrom)
 
     Examples
     --------
@@ -138,6 +143,8 @@ def download_phoenix_spectrum_grid(path, teff_min, teff_max, log_g_min,
 
         >>> from aesop.phoenix import download_phoenix_spectrum_grid
         >>> download_phoenix_spectrum_grid('phoenix_grid.hdf5', 4000, 6000, 4, 5, -1, 1)
+
+    The HDF5 archive that gets saved is roughly 0.5 GB.
     """
     temps = ((phoenix_model_temps <= teff_max) &
              (phoenix_model_temps >= teff_min))
@@ -148,21 +155,31 @@ def download_phoenix_spectrum_grid(path, teff_min, teff_max, log_g_min,
 
     wavelengths = get_phoenix_model_wavelengths()
 
+    wavelength_mask = ((wavelengths < wavelength_max) &
+                       (wavelengths > wavelength_min))
+    wavelengths_in_bounds = wavelengths[wavelength_mask]
+
     import h5py
     archive = h5py.File(path, 'w')
 
-    data_cube_shape = (len(wavelengths), np.count_nonzero(temps),
+    data_cube_shape = (len(wavelengths_in_bounds), np.count_nonzero(temps),
                        np.count_nonzero(gravs), np.count_nonzero(metals))
     dset = archive.create_dataset('spectra', shape=data_cube_shape,
-                                  dtype=np.float64, compression='gzip')
+                                  dtype=np.float32, compression='gzip')
+
+    dset.attrs['temperatures'] = phoenix_model_temps[temps]
+    dset.attrs['gravities'] = phoenix_model_gravities[gravs]
+    dset.attrs['metallicities'] = phoenix_model_metallicities[metals]
+    #dset.attrs['wavelengths'] = wavelengths_in_bounds
 
     for i, t in enumerate(phoenix_model_temps[temps]):
         for j, g in enumerate(phoenix_model_gravities[gravs]):
             for k, z in enumerate(phoenix_model_metallicities[metals]):
-                url = get_any_metallicity_url(t, g, z)
-                tmp_path = download_file(url, cache=False, timeout=30)
-                dset[:, i, j, k] = fits.getdata(tmp_path)
+                if np.all(dset[:, i, j, k] == 0):
+                    url = get_any_metallicity_url(t, g, z)
+                    tmp_path = download_file(url, cache=False, timeout=30)
+                    spectrum = fits.getdata(tmp_path)[wavelength_mask]
+                    dset[:, i, j, k] = spectrum
             archive.flush()
 
     archive.close()
-
