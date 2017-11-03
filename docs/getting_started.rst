@@ -254,6 +254,8 @@ Wolf-Rayet star:
     >>> # Plot the concatenated 1D spectrum
     >>> spec1d = target_spectrum.to_Spectrum1D()
     >>> spec1d.plot()
+
+    >>> import matplotlib.pyplot as plt
     >>> plt.ylim([0, 3])
     >>> plt.xlim([3500, 10000])
     >>> plt.xlabel('Wavelength [Angstrom]')
