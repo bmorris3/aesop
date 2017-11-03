@@ -255,13 +255,6 @@ Wolf-Rayet star:
     >>> spec1d = target_spectrum.to_Spectrum1D()
     >>> spec1d.plot()
 
-    >>> import matplotlib.pyplot as plt
-    >>> plt.ylim([0, 3])
-    >>> plt.xlim([3500, 10000])
-    >>> plt.xlabel('Wavelength [Angstrom]')
-    >>> plt.ylabel('Flux')
-    >>> plt.show()
-
 .. plot::
 
     from astropy.utils.data import download_file
