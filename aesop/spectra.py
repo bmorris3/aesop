@@ -79,7 +79,6 @@ class Spectrum1D(object):
         self.time = time
         self.continuum_normalized = continuum_normalized
 
-<<<<<<< f52110a699ba51e494185b516010e7b118f2ffbe
     def flux_calibrate_parameters(self, flux_calibrated_spectrum, polynomial_order, plots=False):
         """
         Interpolate high-res spectrum to low-res flux calibrated spectrum, then fit
