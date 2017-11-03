@@ -11,6 +11,8 @@ Contents
 
 * :ref:`getting_started-example`
 * :ref:`getting_started-norm`
+* :ref:`getting_started-combine`
+* :ref:`getting_started-alltogether`
 
 .. _getting_started-example:
 
@@ -32,9 +34,9 @@ download them via Python like this:
     >>> target_path = download_file(target_url, show_progress=False) # doctest: +REMOTE_DATA
     >>> standard_path = download_file(spectroscopic_standard_url, show_progress=False) # doctest: +REMOTE_DATA
 
-This will download temporary copies of a Kepler target, KIC 8462852, and
-spectroscopic standard O star BD+28 4211. We first create an
-`~aesop.EchelleSpectrum` object for each star:
+This will download temporary copies of the famous Kepler target KIC 8462852,
+also known as Boyajian's Star, and spectroscopic standard O star BD+28 4211. We
+first create an `~aesop.EchelleSpectrum` object for each star:
 
 .. code-block:: python
 
@@ -90,4 +92,228 @@ You can see the H-alpha absorption in this O star at 6562 Angstroms.
 Normalizing your spectra
 ------------------------
 
-You can continuum-normalize your echelle spectra with the...
+You can continuum-normalize your echelle spectra with two methods:
+
+- `~aesop.EchelleSpectrum.continuum_normalize_from_standard` will remove the
+  blaze function from each echelle order by fitting polynomials to the
+  continuum of each order of a spectroscopic standard star, and then remove
+  those polynomials from each order of the target star
+
+- `~aesop.EchelleSpectrum.continuum_normalize_lstsq` will attempt to remove
+  the blaze function from each echelle order by using a robust least-squares
+  fit to the continuum in each order of the target spectrum -- no spectroscopic
+  standard observation is required by this method.
+
+Let's first use `~aesop.EchelleSpectrum.continuum_normalize_from_standard` on
+our previous example to see order containing the H-alpha line after the blaze
+function has been mostly removed:
+
+.. code-block:: python
+
+    >>> target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+    ...                                                   polynomial_order=8)
+    >>> target_spectrum[73].plot()
+
+.. plot::
+
+    from astropy.utils.data import download_file
+
+    target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
+    spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+
+    target_path = download_file(target_url)
+    standard_path = download_file(spectroscopic_standard_url)
+
+    from aesop import EchelleSpectrum
+
+    target_spectrum = EchelleSpectrum.from_fits(target_path)
+    standard_spectrum = EchelleSpectrum.from_fits(standard_path)
+
+    target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+                                                      polynomial_order=8)
+    target_spectrum[73].plot()
+
+    import matplotlib.pyplot as plt
+    plt.show()
+
+As you can see in this example, the standard star normalization will
+approximately flatten the continuum, but not normalize it to unity. We can
+now flatten the continuum and normalize it to unity with the other
+continuum normalization method,
+`~aesop.EchelleSpectrum.continuum_normalize_lstsq`:
+
+.. code-block:: python
+
+    >>> target_spectrum.continuum_normalize_lstsq(polynomial_order=2)
+    >>> target_spectrum[73].plot()
+
+.. plot::
+
+    from astropy.utils.data import download_file
+
+    target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
+    spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+
+    target_path = download_file(target_url)
+    standard_path = download_file(spectroscopic_standard_url)
+
+    from aesop import EchelleSpectrum
+
+    target_spectrum = EchelleSpectrum.from_fits(target_path)
+    standard_spectrum = EchelleSpectrum.from_fits(standard_path)
+
+    target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+                                                      polynomial_order=8)
+    target_spectrum.continuum_normalize_lstsq(polynomial_order=2)
+
+    target_spectrum[73].plot()
+    import matplotlib.pyplot as plt
+    plt.show()
+
+.. _getting_started-combine:
+
+Merge all orders into a 1D spectrum
+-----------------------------------
+
+Now that you have a great normalized echelle spectrum, let's collapse the
+echelle spectrum down to one, big 1D spectrum, using
+`~aesop.EchelleSpectrum.to_Spectrum1D`, which will give us a `~aesop.Spectrum1D`
+object:
+
+.. code-block:: python
+
+    >>> spec1d = target_spectrum.to_Spectrum1D()
+    >>> print(spec1d)
+    <Spectrum1D: 3561.8-10390.9 Angstrom>
+
+    >>> spec1d.plot()
+
+Of course, this plot is going to look a bit bonkers because there is a lot of
+noise in the extreme red and blue, cosmic rays here and there, and whopping
+telluric absorption. Here's what it looks like:
+
+.. plot::
+
+    import matplotlib.pyplot as plt
+    from astropy.utils.data import download_file
+
+    target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
+    spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+
+    target_path = download_file(target_url)
+    standard_path = download_file(spectroscopic_standard_url)
+
+    from aesop import EchelleSpectrum
+
+    target_spectrum = EchelleSpectrum.from_fits(target_path)
+    standard_spectrum = EchelleSpectrum.from_fits(standard_path)
+
+    target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+                                                      polynomial_order=8)
+    target_spectrum.continuum_normalize_lstsq(polynomial_order=2)
+
+    spec1d = target_spectrum.to_Spectrum1D()
+    spec1d.plot()
+
+    plt.ylim([0, 3])
+    plt.xlim([3500, 10000])
+    plt.xlabel('Wavelength [Angstrom]')
+    plt.ylabel('Flux')
+    plt.show()
+
+.. _getting_started-alltogether:
+
+Putting it all together
+-----------------------
+
+Now let's do all of this analysis on a very different star -- this time a
+Wolf-Rayet star:
+
+.. code-block:: python
+
+    >>> # Download example spectra
+    >>> from astropy.utils.data import download_file
+
+    >>> target_url = 'http://staff.washington.edu/tzdw/wr_echelle/wr124.0001.wfrmcpc.fits'
+    >>> spectroscopic_standard_url = 'http://staff.washington.edu/tzdw/wr_echelle/HIP107864.0003.wfrmcpc.fits'
+
+    >>> target_path = download_file(target_url, show_progress=False) # doctest: +REMOTE_DATA
+    >>> standard_path = download_file(spectroscopic_standard_url, show_progress=False) # doctest: +REMOTE_DATA
+
+    >>> # Open those example spectra with aesop
+    >>> from aesop import EchelleSpectrum
+
+    >>> target_spectrum = EchelleSpectrum.from_fits(target_path)
+    >>> standard_spectrum = EchelleSpectrum.from_fits(standard_path)
+
+    >>> # Continuum normalize the spectra against a standard, and with lstsq
+    >>> target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+    ...                                                   polynomial_order=8)
+    >>> target_spectrum.continuum_normalize_lstsq(polynomial_order=2)
+
+    >>> # Plot the concatenated 1D spectrum
+    >>> spec1d = target_spectrum.to_Spectrum1D()
+    >>> spec1d.plot()
+    >>> plt.ylim([0, 3])
+    >>> plt.xlim([3500, 10000])
+    >>> plt.xlabel('Wavelength [Angstrom]')
+    >>> plt.ylabel('Flux')
+    >>> plt.show()
+
+.. plot::
+
+    from astropy.utils.data import download_file
+
+    target_url = 'http://staff.washington.edu/tzdw/wr_echelle/wr124.0001.wfrmcpc.fits'
+    spectroscopic_standard_url = 'http://staff.washington.edu/tzdw/wr_echelle/HIP107864.0003.wfrmcpc.fits'
+
+    target_path = download_file(target_url, show_progress=False) # doctest: +REMOTE_DATA
+    standard_path = download_file(spectroscopic_standard_url, show_progress=False) # doctest: +REMOTE_DATA
+
+    from aesop import EchelleSpectrum
+
+    target_spectrum = EchelleSpectrum.from_fits(target_path)
+    standard_spectrum = EchelleSpectrum.from_fits(standard_path)
+
+    target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+                                                      polynomial_order=8)
+    target_spectrum.continuum_normalize_lstsq(polynomial_order=2)
+
+    spec1d = target_spectrum.to_Spectrum1D()
+    spec1d.plot()
+    plt.ylim([0, 3])
+    plt.xlim([3500, 10000])
+    plt.xlabel('Wavelength [Angstrom]')
+    plt.ylabel('Flux')
+    plt.show()
+
+But note that these spectra have lots of emission, which our continuum
+normalization preserves:
+
+.. plot::
+
+    from astropy.utils.data import download_file
+
+    target_url = 'http://staff.washington.edu/tzdw/wr_echelle/wr124.0001.wfrmcpc.fits'
+    spectroscopic_standard_url = 'http://staff.washington.edu/tzdw/wr_echelle/HIP107864.0003.wfrmcpc.fits'
+
+    target_path = download_file(target_url, show_progress=False) # doctest: +REMOTE_DATA
+    standard_path = download_file(spectroscopic_standard_url, show_progress=False) # doctest: +REMOTE_DATA
+
+    from aesop import EchelleSpectrum
+
+    target_spectrum = EchelleSpectrum.from_fits(target_path)
+    standard_spectrum = EchelleSpectrum.from_fits(standard_path)
+
+    target_spectrum.continuum_normalize_from_standard(standard_spectrum,
+                                                      polynomial_order=8)
+    target_spectrum.continuum_normalize_lstsq(polynomial_order=2)
+
+    spec1d = target_spectrum.to_Spectrum1D()
+    spec1d.plot()
+    import matplotlib.pyplot as plt
+    plt.ylim([0, 6])
+    plt.xlim([6520, 6620])
+    plt.xlabel('Wavelength [Angstrom]')
+    plt.ylabel('Flux')
+    plt.show()
