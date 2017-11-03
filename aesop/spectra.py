@@ -9,6 +9,9 @@ import numpy as np
 from scipy.ndimage import gaussian_filter1d
 from scipy.optimize import least_squares
 from scipy.stats import binned_statistic
+from scipy.ndimage import convolve1d
+from scipy.signal import gaussian
+from scipy.interpolate import interp1d
 
 from astropy.io import fits
 import astropy.units as u
@@ -94,9 +97,8 @@ class Spectrum1D(object):
         if ax is None:
             ax = plt.gca()
 
-        flux_80th_percentile = np.percentile(self.masked_flux, 80)
-
         if normed:
+            flux_80th_percentile = np.percentile(self.masked_flux, 80)
             flux = self.masked_flux / flux_80th_percentile
         else:
             flux = self.masked_flux
@@ -212,6 +214,23 @@ class Spectrum1D(object):
 
         self.mask |= outliers
 
+    def convolve(self, kernel=gaussian(10, 2)):
+        convolved_flux = convolve1d(self.flux.value, kernel)
+        self.flux = u.Quantity(convolved_flux/np.median(convolved_flux))
+
+    def interpolate(self, new_wavelengths, copy=False, assume_sorted=True):
+        interp_function = interp1d(self.wavelength.value, self.flux.value,
+                                   copy=copy, assume_sorted=assume_sorted,
+                                   fill_value='extrapolate')
+        new_flux = interp_function(new_wavelengths.value)
+
+        return new_flux
+
+    def slice(self, min_wavelength, max_wavelength):
+        in_range = ((self.wavelength < max_wavelength) &
+                    (self.wavelength > min_wavelength))
+        self.flux = np.compress(in_range, self.flux)
+        self.wavelength = np.compress(in_range, self.wavelength)
 
 class EchelleSpectrum(object):
     """
@@ -480,7 +499,6 @@ class EchelleSpectrum(object):
 
                 ax[1].set_title('continuum normalized (robust polynomial)')
                 ax[1].plot(s.wavelength, s.flux.value/model_robust, color='k')
-
 
     def offset_wavelength_solution(self, wavelength_offset):
         """

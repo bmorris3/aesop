@@ -10,9 +10,9 @@ from ._astropy_init import *
 if not _ASTROPY_SETUP_:
     # For egg_info test builds to pass, put package imports here.
 
-    from .phoenix import *
     from .spectra import *
     from .utils import *
     from .masking import *
     from .activity import *
     from .spectral_type import *
+    from .phoenix import *

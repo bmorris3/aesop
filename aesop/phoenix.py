@@ -1,15 +1,16 @@
 
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
-from itertools import product
+import os
 
 import numpy as np
+from scipy.interpolate import RegularGridInterpolator
+import h5py
 from astropy.utils.data import download_file
 from astropy.io import fits
 import astropy.units as u
 
-
-__all__ = ['get_phoenix_model_spectrum']
+__all__ = ['get_phoenix_model_spectrum', 'PHOENIXModelGrid']
 
 phoenix_model_temps = np.array(
     [2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100,
@@ -159,7 +160,6 @@ def download_phoenix_spectrum_grid(path, teff_min, teff_max, log_g_min,
                        (wavelengths > wavelength_min))
     wavelengths_in_bounds = wavelengths[wavelength_mask]
 
-    import h5py
     archive = h5py.File(path, 'w')
 
     data_cube_shape = (len(wavelengths_in_bounds), np.count_nonzero(temps),
@@ -183,3 +183,128 @@ def download_phoenix_spectrum_grid(path, teff_min, teff_max, log_g_min,
             archive.flush()
 
     archive.close()
+
+default_archive_path = 'phoenix_grid.hdf5'
+wavelength_min = 3000  # Angstrom
+wavelength_max = 10000  # Angstrom
+
+
+class PHOENIXModelGrid(object):
+    def __init__(self, path=default_archive_path,
+                 interp_wavelength_min=6562.8-5,
+                 interp_wavelength_max=6562.8+5):
+        self.path = path
+
+        if not os.path.exists(path):
+            raise ValueError('No such HDF5 archive {0}'.format(path))
+
+        archive = h5py.File(path, 'r')
+        dset = archive['spectra']
+        self.temperatures = dset.attrs['temperatures']
+        self.gravities = dset.attrs['gravities']
+        self.metallicities = dset.attrs['metallicities']
+
+        all_wavelengths = get_phoenix_model_wavelengths()
+        wavelength_mask = ((all_wavelengths < wavelength_max) &
+                           (all_wavelengths > wavelength_min))
+        wavelengths_in_bounds = all_wavelengths[wavelength_mask]
+        interp_bounds = ((wavelengths_in_bounds < interp_wavelength_max) &
+                         (wavelengths_in_bounds > interp_wavelength_min))
+        self.wavelengths = wavelengths_in_bounds[interp_bounds]
+
+
+        points = (self.wavelengths, self.temperatures, self.gravities,
+                  self.metallicities)
+        values = dset[np.where(interp_bounds)[0], :, :, :][:]
+
+        rgi = RegularGridInterpolator(points, values)
+        self._rgi = rgi
+
+    def interp(self, temperature, gravity, metallicity, wavelengths=None,
+               method='linear'):
+        if wavelengths is None:
+            wavelengths = self.wavelengths
+        xi = np.hstack([wavelengths[:, np.newaxis],
+                        np.repeat([[temperature, gravity, metallicity]],
+                                  len(wavelengths), axis=0)])
+        return self._rgi(xi, method=method)
+
+    @classmethod
+    def download_phoenix_spectrum_grid(cls, teff_min, teff_max, log_g_min,
+                                       log_g_max, z_min, z_max,
+                                       wavelength_min=wavelength_min,
+                                       wavelength_max=wavelength_max,
+                                       path=default_archive_path):
+        """
+        Get a grid of PHOENIX model spectra.
+
+        Parameters
+        ----------
+        teff_min : float
+            Minimum effective temperature (inclusive)
+        teff_max : float
+            Maximum effective temperature (inclusive)
+        log_g_min : float
+            Minimum surface gravity (inclusive)
+        log_g_max : float
+            Maximum surface gravity (inclusive)
+        z_min : float
+            Minimum metallicity (inclusive)
+        z_max : float
+           Maximum metallicity (inclusive)
+        wavelength_min : float
+            Minimum wavelength to save (angstrom)
+        wavelength_max : float
+            Maximum wavelength to save (angstrom)
+
+        Notes
+        -----
+        The HDF5 archive that gets saved is roughly 0.5 GB.
+        """
+        temps = ((phoenix_model_temps <= teff_max) &
+                 (phoenix_model_temps >= teff_min))
+        gravs = ((phoenix_model_gravities <= log_g_max) &
+                 (phoenix_model_gravities >= log_g_min))
+        metals = ((phoenix_model_metallicities <= z_max) &
+                  (phoenix_model_metallicities >= z_min))
+
+        wavelengths = get_phoenix_model_wavelengths()
+
+        wavelength_mask = ((wavelengths < wavelength_max) &
+                           (wavelengths > wavelength_min))
+        wavelengths_in_bounds = wavelengths[wavelength_mask]
+
+        import h5py
+        archive = h5py.File(path, 'w')
+
+        data_cube_shape = (len(wavelengths_in_bounds), np.count_nonzero(temps),
+                           np.count_nonzero(gravs), np.count_nonzero(metals))
+        dset = archive.create_dataset('spectra', shape=data_cube_shape,
+                                      dtype=np.float32, compression='gzip')
+
+        dset.attrs['temperatures'] = phoenix_model_temps[temps]
+        dset.attrs['gravities'] = phoenix_model_gravities[gravs]
+        dset.attrs['metallicities'] = phoenix_model_metallicities[metals]
+
+        for i, t in enumerate(phoenix_model_temps[temps]):
+            for j, g in enumerate(phoenix_model_gravities[gravs]):
+                for k, z in enumerate(phoenix_model_metallicities[metals]):
+                    if np.all(dset[:, i, j, k] == 0):
+                        url = get_any_metallicity_url(t, g, z)
+                        tmp_path = download_file(url, cache=False, timeout=30)
+                        spectrum = fits.getdata(tmp_path)[wavelength_mask]
+                        dset[:, i, j, k] = spectrum
+                archive.flush()
+
+        archive.close()
+        return cls(path=path)
+
+    def spectrum(self, temperature, gravity, metallicity, wavelengths=None,
+                 method='linear'):
+        if wavelengths is None:
+            wavelengths = self.wavelengths
+        flux = self.interp(temperature, gravity, metallicity, method=method,
+                           wavelengths=wavelengths)
+        from .spectra import Spectrum1D
+        return Spectrum1D(wavelengths if hasattr(wavelengths, 'unit') else
+                          u.Quantity(wavelengths, u.Angstrom), flux)
