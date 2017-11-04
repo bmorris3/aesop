@@ -112,7 +112,7 @@ function has been mostly removed:
 
     >>> target_spectrum.continuum_normalize_from_standard(standard_spectrum,
     ...                                                   polynomial_order=8)
-    >>> target_spectrum[73].plot()
+    >>> target_spectrum[73].plot() # doctest: +SKIP
 
 .. plot::
 
