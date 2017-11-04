@@ -146,7 +146,7 @@ class Spectrum1D(object):
 
         return transformed_spectrum
 
-    def plot(self, ax=None, **kwargs):
+    def plot(self, ax=None, normed=False, flux_offset=0, **kwargs):
         """
         Plot the spectrum.
 
@@ -161,7 +161,16 @@ class Spectrum1D(object):
         if ax is None:
             ax = plt.gca()
 
-        ax.plot(self.masked_wavelength, self.masked_flux, **kwargs)
+        flux_80th_percentile = np.percentile(self.masked_flux, 80)
+
+        if normed:
+            flux = self.masked_flux / flux_80th_percentile
+        else:
+            flux = self.masked_flux
+
+        ax.plot(self.masked_wavelength, flux + flux_offset, **kwargs)
+        #ax.set_xlim([self.masked_wavelength.value.min(),
+        #             self.masked_wavelength.value.max()])
         ax.set(xlabel='Wavelength [{0}]'.format(self.wavelength_unit),
                ylabel='Flux')
         if self.name is not None:
@@ -170,14 +179,14 @@ class Spectrum1D(object):
     @property
     def masked_wavelength(self):
         if self.mask is not None:
-            return self.wavelength[np.logical_not(self.mask)]
+            return self.wavelength[self.mask]
         else:
             return self.wavelength
 
     @property
     def masked_flux(self):
         if self.mask is not None:
-            return self.flux[np.logical_not(self.mask)]
+            return self.flux[self.mask]
         else:
             return self.flux
 
@@ -269,7 +278,6 @@ class Spectrum1D(object):
             outliers |= self.flux.value < -0.5
 
         self.mask |= outliers
-
 
 
 class EchelleSpectrum(object):

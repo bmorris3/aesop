@@ -56,4 +56,4 @@ def get_spectrum_mask(spectrum, cutoff=1.5, plot=False):
         plt.plot(spectrum.wavelength[mask], spectrum.flux[mask], label='masked')
         plt.legend()
 
-    return np.logical_not(mask)
+    return mask
