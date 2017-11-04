@@ -62,7 +62,7 @@ make a quick plot of the 73rd order of the target's echelle spectrum:
 .. code-block:: python
 
     order73 = target_spectrum[73]
-    order73.plot()
+    order73.plot() # doctest: +SKIP
 
 .. plot::
 
@@ -145,7 +145,7 @@ continuum normalization method,
 .. code-block:: python
 
     >>> target_spectrum.continuum_normalize_lstsq(polynomial_order=2)
-    >>> target_spectrum[73].plot()
+    >>> target_spectrum[73].plot() # doctest: +SKIP
 
 .. plot::
 
@@ -186,7 +186,7 @@ object:
     >>> print(spec1d)
     <Spectrum1D: 3561.8-10390.9 Angstrom>
 
-    >>> spec1d.plot()
+    >>> spec1d.plot() # doctest: +SKIP
 
 Of course, this plot is going to look a bit bonkers because there is a lot of
 noise in the extreme red and blue, cosmic rays here and there, and whopping
@@ -253,7 +253,7 @@ Wolf-Rayet star:
 
     >>> # Plot the concatenated 1D spectrum
     >>> spec1d = target_spectrum.to_Spectrum1D()
-    >>> spec1d.plot()
+    >>> spec1d.plot() # doctest: +SKIP
 
 .. plot::
 
