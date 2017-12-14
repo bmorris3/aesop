@@ -540,20 +540,25 @@ class EchelleSpectrum(object):
                 ax[1].set_title('continuum normalized (robust polynomial)')
                 ax[1].plot(s.wavelength, s.flux.value/model_robust, color='k')
 
-
     def offset_wavelength_solution(self, wavelength_offset):
         """
-        Offset the wavelengths by a constant amount in a specific order.
+        Offset the wavelengths by a constant amount in each order.
 
         Parameters
         ----------
-        spectral_order : int
-            Echelle spectrum order to correct
-        wavelength_offset : `~astropy.units.Quantity`
-            Offset the wavelengths by this amount
+        wavelength_offset : `~astropy.units.Quantity` or list
+            Offset the wavelengths by this amount. If ``wavelength_offset`` is a
+            list, each value will be treated as an offset for on echelle order,
+            otherwise a single ``wavelength_offset`` will be applied to every
+            order.
         """
-        for spectrum in self.spectrum_list:
-            spectrum.wavelength += wavelength_offset
+        if hasattr(wavelength_offset, '__len__'):
+            for spectrum, offset in zip(self.spectrum_list, wavelength_offset):
+                spectrum.wavelength += offset
+        else:
+            # Old behavior
+            for spectrum in self.spectrum_list:
+                spectrum.wavelength += wavelength_offset
 
     def rv_wavelength_shift(self, spectral_order, T_eff=None, plot=False):
         """
@@ -603,6 +608,40 @@ class EchelleSpectrum(object):
             plt.show()
 
         return rv_shift
+
+    def rv_wavelength_shift_ransac(self, min_order=10, max_order=45,
+                                   T_eff=4700):
+        """
+        Solve for the radial velocity wavelength shift of every order in the
+        echelle spectrum, then do a RANSAC (outlier rejecting) linear fit to the
+        wavelength correction between orders ``min_order`` and ``max_order``.
+
+        Parameters
+        ----------
+        min_order : int
+            Index of the bluest order to fit in the wavelength correction
+        max_order : int
+            Index of the reddest order to fit in the wavelength correction
+        T_eff : int
+            Effective temperature of the PHOENIX model atmosphere to use in
+            the cross-correlation.
+
+        Returns
+        -------
+        wl : `~astropy.units.Quantity`
+            Wavelength corrections for each order.
+        """
+        from sklearn import linear_model
+
+        rv_shifts = u.Quantity([self.rv_wavelength_shift(order, T_eff=T_eff)
+                                for order in range(len(self.spectrum_list))])
+        X = np.arange(len(rv_shifts))[min_order:max_order, np.newaxis]
+        y = rv_shifts.value[min_order:max_order]
+
+        ransac = linear_model.RANSACRegressor()
+        ransac.fit(X, y)
+        line_y_ransac = ransac.predict(np.arange(len(rv_shifts))[:, np.newaxis])
+        return line_y_ransac*u.Angstrom
 
     def __repr__(self):
         wl_unit = u.Angstrom
