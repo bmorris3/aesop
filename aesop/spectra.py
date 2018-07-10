@@ -555,9 +555,14 @@ class EchelleSpectrum(object):
             
             header = self.header
             
-            if ('RA' in header) & ('DEC' in header) & ('RADECSYS' in header) & ('EQUINOX' in header):
+            if ('RA' in header) & ('DEC' in header) & ('EQUINOX' in header):
                 
-                skycoord = SkyCoord(header['RA'], header['DEC'], unit=(u.hourangle, u.deg), frame=header['RADECSYS'].lower(),  equinox=Time(header['EQUINOX'],format='jyear'))
+                if 'RADECSYS' in header: #assumes ICRS if not specified
+                    frame=header['RADECSYS'].lower()
+                else:
+                    frame='icrs'
+                
+                skycoord = SkyCoord(header['RA'], header['DEC'], unit=(u.hourangle, u.deg), frame=frame,  equinox=Time(header['EQUINOX'],format='jyear'))
                 
             elif skycoord is None:
                 
@@ -566,6 +571,10 @@ class EchelleSpectrum(object):
             if 'OBSERVAT' in header:
                 
                 location = EarthLocation.of_site(header['OBSERVAT'])
+                
+            elif 'SITENAME' in header:
+                
+                location = EarthLocation.of_site(header['SITENAME'])
             
             elif location is None:
                 
@@ -585,11 +594,11 @@ class EchelleSpectrum(object):
         sc_cartesian = skycoord.icrs.represent_as(UnitSphericalRepresentation).represent_as(CartesianRepresentation) #Put skycoord in same frame as velocity so we can get velocity component towards object
         
         barycentric_velocity = sc_cartesian.dot(velocity).to(u.km/u.s)
-        #Positive = star moving away from us, negative = star moving towards us
+        #Velocity of earth, to be added directly to wavelength. So + should result in a redshift
         redshift = barycentric_velocity/c.c 
         
         for spectrum in self.spectrum_list:
-            spectrum.wavelength /= (1.0 + redshift)
+            spectrum.wavelength *= (1.0 + redshift)
             
         return barycentric_velocity
         
