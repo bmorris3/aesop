@@ -589,7 +589,7 @@ class EchelleSpectrum(object):
         redshift = barycentric_velocity/c.c 
         
         for spectrum in self.spectrum_list:
-            spectrum.wavelength */= (1.0 + redshift)
+            spectrum.wavelength /= (1.0 + redshift)
             
         return barycentric_velocity
         
