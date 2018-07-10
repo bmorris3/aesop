@@ -12,9 +12,16 @@ from scipy.stats import binned_statistic
 
 from astropy.io import fits
 import astropy.units as u
+import astropy.constants as c
 from astropy.time import Time
 from astropy.stats import mad_std
 from specutils.io import read_fits
+
+from astropy.coordinates.solar_system import get_body_barycentric_posvel
+from astropy.coordinates.matrix_utilities import matrix_product
+from astropy.coordinates.representation import CartesianRepresentation ,UnitSphericalRepresentation
+from astropy.coordinates.builtin_frames import GCRS
+from astropy.coordinates import SkyCoord, solar_system, EarthLocation, ICRS
 
 from .spectral_type import query_for_T_eff
 from .phoenix import get_phoenix_model_spectrum
@@ -506,6 +513,86 @@ class EchelleSpectrum(object):
             plt.show()
 
         return rv_shift
+    
+    def barycentric_correction(self, time=None, skycoord=None, location=None):
+        
+        """
+        Barycentric velocity correction, code from StuartLittlefair
+        (https://gist.github.com/StuartLittlefair/5aaf476c5d7b52d20aa9544cfaa936a1)
+        
+        Uses the ephemeris set with  ``astropy.coordinates.solar_system_ephemeris.set`` 
+        for corrections.
+        
+        For more information see `~astropy.coordinates.solar_system_ephemeris`.
+        
+        Will attempt to get the necessary info from the header if possible, otherwise requires time, 
+        skycoord, and location parameters to be set.
+  
+        Parameters
+        ----------
+        time : `~astropy.time.Time`
+            The time of observation, optional
+        skycoord: `~astropy.coordinates.SkyCoord`
+            The sky location to calculate the correction for, optional.
+        location: `~astropy.coordinates.EarthLocation`, optional
+            The location of the observatory to calculate the correction for.
+    
+        Returns
+        -------
+            barycentric_velocity : `~astropy.units.Quantity`
+                The velocity correction that was added to the wavelength arrays of each order.
+        """
+        
+        if self.time is not None:
+            
+            time = self.time
+            
+        else:
+            
+            assert time is not None, "Please provide a time."
+        
+        if self.header is not None:
+            
+            header = self.header
+            
+            if ('RA' in header) & ('DEC' in header) & ('RADECSYS' in header) & ('EQUINOX' in header):
+                
+                skycoord = SkyCoord(header['RA'], header['DEC'], unit=(u.hourangle, u.deg), frame=header['RADECSYS'].lower(),  equinox=Time(header['EQUINOX'],format='jyear'))
+                
+            elif skycoord is None:
+                
+                raise KeyError("Either set 'RA', 'DEC','RADECSYS', 'EQUINOX' header keywords or provide a location")
+            
+            if 'OBSERVAT' in header:
+                
+                location = EarthLocation.of_site(header['OBSERVAT'])
+            
+            elif location is None:
+                
+                raise KeyError("Either set 'OBSERVAT' header keyword or provide a location")
+                
+        else:
+            
+            assert (skycoord is not None) & (location is not None), "You need to manually provide object coordinates and observatory location."
+            
+        
+        ep, ev = solar_system.get_body_barycentric_posvel('earth', time) # ICRS position and velocity of Earth's geocenter
+        
+        op, ov = location.get_gcrs_posvel(time) # GCRS position and velocity of observatory
+        
+        velocity = ev + ov # ICRS and GCRS are axes-aligned. Can add the velocities.
+        
+        sc_cartesian = skycoord.icrs.represent_as(UnitSphericalRepresentation).represent_as(CartesianRepresentation) #Put skycoord in same frame as velocity so we can get velocity component towards object
+        
+        barycentric_velocity = sc_cartesian.dot(velocity).to(u.km/u.s)
+        #Positive = star moving away from us, negative = star moving towards us
+        redshift = barycentric_velocity/c.c 
+        
+        for spectrum in self.spectrum_list:
+            spectrum.wavelength */= (1.0 + redshift)
+            
+        return barycentric_velocity
+        
 
     def __repr__(self):
         wl_unit = u.Angstrom
