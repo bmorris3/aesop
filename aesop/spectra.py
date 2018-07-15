@@ -914,8 +914,8 @@ def cross_corr(target_spectrum, model_spectrum, kernel_width):
     smoothed_model_flux = gaussian_filter1d(model_spectrum.masked_flux,
                                             kernel_width)
 
-    corr = np.correlate(target_spectrum.masked_flux,
-                        smoothed_model_flux, mode='same')
+    corr = np.correlate(target_spectrum.masked_flux - target_spectrum.masked_flux.mean(),
+                        smoothed_model_flux - smoothed_model_flux.mean(), mode='same')
 
     max_corr_ind = np.argmax(corr)
     index_shift = corr.shape[0]/2 - max_corr_ind
