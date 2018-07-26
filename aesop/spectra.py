@@ -393,6 +393,8 @@ class EchelleSpectrum(object):
             plt.plot(spectrum.wavelength,
                      np.polyval(fit_params,
                                 spectrum.wavelength - mean_wavelength))
+            plt.xlabel('Wavelength [{0}]'.format(spectrum.wavelength_unit))
+            plt.ylabel('Flux')
             plt.show()
         return fit_params
     
