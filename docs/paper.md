@@ -14,7 +14,7 @@ authors:
 affiliations:
  - name: Astronomy Department, University of Washington, Seattle, WA, USA
    index: 1
-date: XX July 2018
+date: 15 July 2018
 bibliography: paper.bib
 ---
 

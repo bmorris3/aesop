@@ -488,8 +488,6 @@ class EchelleSpectrum(object):
 
         Parameters
         ----------
-        standard_spectrum : `EchelleSpectrum`
-            Spectrum of the standard object
         polynomial_order : int
             Fit the standard's spectrum with a polynomial of this order
         only_orders : `~numpy.ndarray` (optional)
