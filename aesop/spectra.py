@@ -15,14 +15,12 @@ import astropy.units as u
 import astropy.constants as c
 from astropy.time import Time
 from astropy.stats import mad_std
-from specutils.io import read_fits
 
-from astropy.coordinates.solar_system import get_body_barycentric_posvel
-from astropy.coordinates.matrix_utilities import matrix_product
-from astropy.coordinates.representation import CartesianRepresentation ,UnitSphericalRepresentation
-from astropy.coordinates.builtin_frames import GCRS
-from astropy.coordinates import SkyCoord, solar_system, EarthLocation, ICRS
+from astropy.coordinates.representation import (CartesianRepresentation,
+                                                UnitSphericalRepresentation)
+from astropy.coordinates import SkyCoord, solar_system, EarthLocation
 
+from .legacy_specutils import read_fits_spectrum1d
 from .spectral_type import query_for_T_eff
 from .phoenix import get_phoenix_model_spectrum
 from .masking import get_spectrum_mask
@@ -330,7 +328,7 @@ class EchelleSpectrum(object):
             Path to the FITS file
         """
         spectrum_list = [Spectrum1D.from_specutils(s)
-                         for s in read_fits.read_fits_spectrum1d(path)]
+                         for s in read_fits_spectrum1d(path)]
         header = fits.getheader(path)
 
         name = header.get('OBJNAME', None)
