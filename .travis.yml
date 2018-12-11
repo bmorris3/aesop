@@ -33,7 +33,7 @@ env:
         - MAIN_CMD='python setup.py'
         - SETUP_CMD='test -V --remote-data'
         - CONDA_CHANNELS='astropy astropy-ci-extras conda-forge'
-        - CONDA_DEPENDENCIES='specutils astroquery matplotlib scipy'
+        - CONDA_DEPENDENCIES='astroquery matplotlib scipy'
         - EVENT_TYPE='pull_request push'
         - ASTROPY_USE_SYSTEM_PYTEST=1
 
@@ -62,12 +62,6 @@ matrix:
         - os: linux
           env: ASTROPY_VERSION=development
                EVENT_TYPE='pull_request push cron'
-
-        - os: linux
-          env: PYTHON_VERSION=2.7 ASTROPY_VERSION=lts
-
-        - os: linux
-          env: ASTROPY_VERSION=lts
 
         # Try numpy pre-release
         - os: linux
