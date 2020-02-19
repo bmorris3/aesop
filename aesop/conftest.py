@@ -1,8 +1,8 @@
-from astropy.tests.pytest_plugins import *
 
 # also save a copy of the astropy hooks so we can use them below when
 # overriding
-from astropy.tests import pytest_plugins as astropy_pytest_plugins
+from astropy.tests.plugins.display import (PYTEST_HEADER_MODULES,
+                                           TESTED_VERSIONS)
 
 import warnings
 
@@ -21,7 +21,7 @@ TESTED_VERSIONS[packagename] = version
 
 # Comment out this line to avoid deprecation warnings being raised as
 # exceptions
-enable_deprecations_as_exceptions()
+# enable_deprecations_as_exceptions()
 
 # Define list of packages for which to display version numbers in the test log
 try:
@@ -32,11 +32,6 @@ except KeyError:
 
 
 def pytest_configure(config):
-    if hasattr(astropy_pytest_plugins, 'pytest_configure'):
-        # sure ought to be true right now, but always possible it will change in
-        # future versions of astropy
-        astropy_pytest_plugins.pytest_configure(config)
-
     # activate image comparison tests only if the dependencies needed are installed:
     # matplotlib, nose, pytest-mpl
     try:

@@ -22,7 +22,10 @@ Opening example spectra
 If you want to do this with your own data, make sure it is reduced by following the steps in :ref:`iraf`
 
 Example ARCES spectra are available online for you to work with. You can
-download them via Python like this:
+download them via Python like this... this will download temporary copies of
+the famous Kepler target KIC 8462852, also known as Boyajian's Star, and
+spectroscopic standard O star BD+28 4211. We also create an
+`~aesop.EchelleSpectrum` object for each star:
 
 .. code-block:: python
 
@@ -31,19 +34,14 @@ download them via Python like this:
     >>> target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
     >>> spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
 
-    >>> target_path = download_file(target_url, show_progress=False) # doctest: +REMOTE_DATA
-    >>> standard_path = download_file(spectroscopic_standard_url, show_progress=False) # doctest: +REMOTE_DATA
-
-This will download temporary copies of the famous Kepler target KIC 8462852,
-also known as Boyajian's Star, and spectroscopic standard O star BD+28 4211. We
-first create an `~aesop.EchelleSpectrum` object for each star:
-
-.. code-block:: python
+    >>> target_path = download_file(target_url, show_progress=False)
+    >>> standard_path = download_file(spectroscopic_standard_url, show_progress=False)
 
     >>> from aesop import EchelleSpectrum
 
-    >>> target_spectrum = EchelleSpectrum.from_fits(target_path)
+    >>> target_spectrum = EchelleSpectrum.from_fits(target_path) # doctest: +SKIP
     >>> standard_spectrum = EchelleSpectrum.from_fits(standard_path)
+
 
 You can check basic metadata for an `~aesop.EchelleSpectrum` object by printing
 it:
