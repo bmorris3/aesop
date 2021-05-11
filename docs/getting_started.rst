@@ -31,17 +31,16 @@ spectroscopic standard O star BD+28 4211. We also create an
 
     >>> from astropy.utils.data import download_file
 
-    >>> target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
-    >>> spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+    >>> target_url = 'https://drive.google.com/uc?export=download&id=1lkZi4p6ZGeeyDf_Z0eexMy0GHnr92_dv'
+    >>> spectroscopic_standard_url = 'https://drive.google.com/uc?export=download&id=1YiY1DP5Ec4mumvzjWj4u5DmFiEyn9MgH'
 
     >>> target_path = download_file(target_url, show_progress=False)
     >>> standard_path = download_file(spectroscopic_standard_url, show_progress=False)
 
     >>> from aesop import EchelleSpectrum
 
-    >>> target_spectrum = EchelleSpectrum.from_fits(target_path) # doctest: +SKIP
+    >>> target_spectrum = EchelleSpectrum.from_fits(target_path)
     >>> standard_spectrum = EchelleSpectrum.from_fits(standard_path)
-
 
 You can check basic metadata for an `~aesop.EchelleSpectrum` object by printing
 it:
@@ -49,7 +48,7 @@ it:
 .. code-block:: python
 
     >>> print(target_spectrum)
-    <EchelleSpectrum: 107 orders, 3506.8-10612.5 Angstrom>
+    <EchelleSpectrum: 107 orders, 3506.8-10612.4 Angstrom>
 
 The `~aesop.EchelleSpectrum` object behaves a bit like a Python list -- it
 supports indexing, where the index counts the order number, starting with index
@@ -66,8 +65,8 @@ make a quick plot of the 73rd order of the target's echelle spectrum:
 
     from astropy.utils.data import download_file
 
-    target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
-    spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+    target_url = 'https://drive.google.com/uc?export=download&id=1lkZi4p6ZGeeyDf_Z0eexMy0GHnr92_dv'
+    spectroscopic_standard_url = 'https://drive.google.com/uc?export=download&id=1YiY1DP5Ec4mumvzjWj4u5DmFiEyn9MgH'
 
     target_path = download_file(target_url)
     standard_path = download_file(spectroscopic_standard_url)
@@ -116,8 +115,8 @@ function has been mostly removed:
 
     from astropy.utils.data import download_file
 
-    target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
-    spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+    target_url = 'https://drive.google.com/uc?export=download&id=1lkZi4p6ZGeeyDf_Z0eexMy0GHnr92_dv'
+    spectroscopic_standard_url = 'https://drive.google.com/uc?export=download&id=1YiY1DP5Ec4mumvzjWj4u5DmFiEyn9MgH'
 
     target_path = download_file(target_url)
     standard_path = download_file(spectroscopic_standard_url)
@@ -149,8 +148,8 @@ continuum normalization method,
 
     from astropy.utils.data import download_file
 
-    target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
-    spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+    target_url = 'https://drive.google.com/uc?export=download&id=1lkZi4p6ZGeeyDf_Z0eexMy0GHnr92_dv'
+    spectroscopic_standard_url = 'https://drive.google.com/uc?export=download&id=1YiY1DP5Ec4mumvzjWj4u5DmFiEyn9MgH'
 
     target_path = download_file(target_url)
     standard_path = download_file(spectroscopic_standard_url)
@@ -182,7 +181,7 @@ object:
 
     >>> spec1d = target_spectrum.to_Spectrum1D()
     >>> print(spec1d)
-    <Spectrum1D: 3561.8-10390.9 Angstrom>
+    <Spectrum1D: 3561.9-10391.0 Angstrom>
 
     >>> spec1d.plot() # doctest: +SKIP
 
@@ -195,8 +194,8 @@ telluric absorption. Here's what it looks like:
     import matplotlib.pyplot as plt
     from astropy.utils.data import download_file
 
-    target_url = 'http://staff.washington.edu/bmmorris/docs/KIC8462852.0065.wfrmcpc.fits'
-    spectroscopic_standard_url = 'http://staff.washington.edu/bmmorris/docs/BD28_4211.0034.wfrmcpc.fits'
+    target_url = 'https://drive.google.com/uc?export=download&id=1lkZi4p6ZGeeyDf_Z0eexMy0GHnr92_dv'
+    spectroscopic_standard_url = 'https://drive.google.com/uc?export=download&id=1YiY1DP5Ec4mumvzjWj4u5DmFiEyn9MgH'
 
     target_path = download_file(target_url)
     standard_path = download_file(spectroscopic_standard_url)

@@ -29,8 +29,9 @@ def test_constructor():
 
 @remote_data
 def test_read_fits():
-    url = ('http://staff.washington.edu/bmmorris/docs/'
-           'KIC8462852.0065.wfrmcpc.fits')
+    url = ('https://drive.google.com/uc?export=download&id='
+           '1vf8rNhAiUJ1NO9VkwZOhcK6avJICfETH')
+
     path = download_file(url, show_progress=False)
 
     echelle_spectrum = EchelleSpectrum.from_fits(path)
