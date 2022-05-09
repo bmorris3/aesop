@@ -380,8 +380,8 @@ class EchelleSpectrum(object):
         mask_wavelengths = ((abs(spectrum.wavelength - true_h_centroid) > 6.5*u.Angstrom) &
                             (abs(spectrum.wavelength - true_k_centroid) > 6.5*u.Angstrom))
 
-        fit_params = np.polyfit(spectrum.wavelength[mask_wavelengths] - mean_wavelength,
-                                spectrum.flux[mask_wavelengths], polynomial_order)
+        fit_params = np.polyfit(spectrum.wavelength[mask_wavelengths].value - mean_wavelength.value,
+                                spectrum.flux[mask_wavelengths].value, polynomial_order)
 
         if plots:
             plt.figure()
@@ -390,7 +390,7 @@ class EchelleSpectrum(object):
                      spectrum.flux[mask_wavelengths])
             plt.plot(spectrum.wavelength,
                      np.polyval(fit_params,
-                                spectrum.wavelength - mean_wavelength))
+                                spectrum.wavelength.value - mean_wavelength.value))
             plt.xlabel('Wavelength [{0}]'.format(spectrum.wavelength_unit))
             plt.ylabel('Flux')
             plt.show()
@@ -416,8 +416,8 @@ class EchelleSpectrum(object):
         spectrum = self.get_order(spectral_order)
         mean_wavelength = spectrum.wavelength.mean()
         flux_fit = np.polyval(fit_params, 
-                              spectrum.wavelength - mean_wavelength)
-        return flux_fit
+                              spectrum.wavelength.value - mean_wavelength.value)
+        return u.Quantity(flux_fit)
 
     def continuum_normalize_from_standard(self, standard_spectrum,
                                           polynomial_order, only_orders=None,
