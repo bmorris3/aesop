@@ -380,8 +380,8 @@ class EchelleSpectrum(object):
         mask_wavelengths = ((abs(spectrum.wavelength - true_h_centroid) > 6.5*u.Angstrom) &
                             (abs(spectrum.wavelength - true_k_centroid) > 6.5*u.Angstrom))
 
-        fit_params = np.polyfit(spectrum.wavelength[mask_wavelengths] - mean_wavelength,
-                                spectrum.flux[mask_wavelengths], polynomial_order)
+        fit_params = np.polyfit(spectrum.wavelength[mask_wavelengths].value - mean_wavelength.value,
+                                spectrum.flux[mask_wavelengths].value, polynomial_order)
 
         if plots:
             plt.figure()
@@ -390,7 +390,7 @@ class EchelleSpectrum(object):
                      spectrum.flux[mask_wavelengths])
             plt.plot(spectrum.wavelength,
                      np.polyval(fit_params,
-                                spectrum.wavelength - mean_wavelength))
+                                spectrum.wavelength.value - mean_wavelength.value))
             plt.xlabel('Wavelength [{0}]'.format(spectrum.wavelength_unit))
             plt.ylabel('Flux')
             plt.show()
