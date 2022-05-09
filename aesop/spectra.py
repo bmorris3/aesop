@@ -416,8 +416,8 @@ class EchelleSpectrum(object):
         spectrum = self.get_order(spectral_order)
         mean_wavelength = spectrum.wavelength.mean()
         flux_fit = np.polyval(fit_params, 
-                              spectrum.wavelength - mean_wavelength)
-        return flux_fit
+                              spectrum.wavelength.value - mean_wavelength.value)
+        return u.Quantity(flux_fit)
 
     def continuum_normalize_from_standard(self, standard_spectrum,
                                           polynomial_order, only_orders=None,
