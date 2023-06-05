@@ -20,7 +20,7 @@ from astropy.coordinates.representation import (CartesianRepresentation,
                                                 UnitSphericalRepresentation)
 from astropy.coordinates import SkyCoord, solar_system, EarthLocation
 
-from .legacy_specutils import read_fits_spectrum1d
+from specutils import SpectrumCollection
 from .spectral_type import query_for_T_eff
 from .phoenix import get_phoenix_model_spectrum
 from .masking import get_spectrum_mask
@@ -141,7 +141,7 @@ class Spectrum1D(object):
             Spectrum transformed with sensitivity polynomial
         """
 
-        sens_params = flux_calibrate_parameters(flux_calibrated_spectrum, polynomial_order)
+        sens_params = self.flux_calibrate_parameters(flux_calibrated_spectrum, polynomial_order)
 
         sens = np.polyval(sens_params,self.wavelength)
 
@@ -328,7 +328,7 @@ class EchelleSpectrum(object):
             Path to the FITS file
         """
         spectrum_list = [Spectrum1D.from_specutils(s)
-                         for s in read_fits_spectrum1d(path)]
+                         for s in SpectrumCollection.read(path)]
         header = fits.getheader(path)
 
         name = header.get('OBJNAME', None)
@@ -380,8 +380,9 @@ class EchelleSpectrum(object):
         mask_wavelengths = ((abs(spectrum.wavelength - true_h_centroid) > 6.5*u.Angstrom) &
                             (abs(spectrum.wavelength - true_k_centroid) > 6.5*u.Angstrom))
 
-        fit_params = np.polyfit(spectrum.wavelength[mask_wavelengths] - mean_wavelength,
-                                spectrum.flux[mask_wavelengths], polynomial_order)
+        fit_params = np.polyfit(
+            (spectrum.wavelength[mask_wavelengths] - mean_wavelength).value,
+            spectrum.flux[mask_wavelengths].value, polynomial_order)
 
         if plots:
             plt.figure()
@@ -390,7 +391,7 @@ class EchelleSpectrum(object):
                      spectrum.flux[mask_wavelengths])
             plt.plot(spectrum.wavelength,
                      np.polyval(fit_params,
-                                spectrum.wavelength - mean_wavelength))
+                                (spectrum.wavelength - mean_wavelength).value))
             plt.xlabel('Wavelength [{0}]'.format(spectrum.wavelength_unit))
             plt.ylabel('Flux')
             plt.show()
@@ -415,8 +416,8 @@ class EchelleSpectrum(object):
         """
         spectrum = self.get_order(spectral_order)
         mean_wavelength = spectrum.wavelength.mean()
-        flux_fit = np.polyval(fit_params, 
-                              spectrum.wavelength - mean_wavelength)
+        flux_fit = np.polyval(fit_params,
+                              (spectrum.wavelength - mean_wavelength).value)
         return flux_fit
 
     def continuum_normalize_from_standard(self, standard_spectrum,
@@ -929,7 +930,7 @@ def _poly_model(p, x):
     Polynomial model for lstsq continuum normalization
     """
     x_mean = x.mean()
-    return np.polyval(p, x - x_mean)
+    return np.polyval(p, (x - x_mean).value)
 
 
 def _residuals(p, x, y):
