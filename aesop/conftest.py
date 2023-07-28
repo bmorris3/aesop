@@ -1,50 +1,23 @@
+# This file is used to configure the behavior of pytest when using the Astropy
+# test infrastructure. It needs to live inside the package in order for it to
+# get picked up when running the tests inside an interpreter using
+# packagename.test
 
-# also save a copy of the astropy hooks so we can use them below when
-# overriding
-from astropy.tests.plugins.display import (PYTEST_HEADER_MODULES,
-                                           TESTED_VERSIONS)
-
-import warnings
-
-import os
-
-# This is to figure out the affiliated package version, rather than
-# using Astropy's
 try:
-    from .version import version
+    from pytest_astropy_header.display import (PYTEST_HEADER_MODULES,
+                                               TESTED_VERSIONS)
+    ASTROPY_HEADER = True
 except ImportError:
-    version = 'dev'
-
-packagename = os.path.basename(os.path.dirname(__file__))
-TESTED_VERSIONS[packagename] = version
-
-
-# Comment out this line to avoid deprecation warnings being raised as
-# exceptions
-# enable_deprecations_as_exceptions()
-
-# Define list of packages for which to display version numbers in the test log
-try:
-    PYTEST_HEADER_MODULES['Astropy'] = 'astropy'
-    del PYTEST_HEADER_MODULES['h5py']
-except KeyError:
-    pass
+    ASTROPY_HEADER = False
 
 
 def pytest_configure(config):
-    # activate image comparison tests only if the dependencies needed are installed:
-    # matplotlib, nose, pytest-mpl
-    try:
-        import matplotlib
-        import nose  # needed for the matplotlib testing tools
-        HAS_MATPLOTLIB_AND_NOSE = True
-    except ImportError:
-        HAS_MATPLOTLIB_AND_NOSE = False
+    if ASTROPY_HEADER:
+        config.option.astropy_header = True
 
-    if HAS_MATPLOTLIB_AND_NOSE and config.pluginmanager.hasplugin('mpl'):
-        pass
-        # TODO: turn image comparison tests back on once this issue is figured out:
-        # https://github.com/astropy/astroplan/pull/104#issuecomment-137734007
-        # config.option.mpl = True
-        # config.option.mpl_baseline_path = 'astroplan/plots/tests/baseline_images'
-
+        # Customize the following lines to add/remove entries from the
+        # list of packages for which version numbers are displayed when
+        # running the tests.
+        PYTEST_HEADER_MODULES['Numpy'] = 'numpy'
+        PYTEST_HEADER_MODULES['Astropy'] = 'astropy'
+        PYTEST_HEADER_MODULES.pop('h5py', None)

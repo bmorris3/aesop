@@ -1,18 +1,17 @@
-from __future__ import (absolute_import, division, print_function,
-                        unicode_literals)
+from pkg_resources import get_distribution, DistributionNotFound
 
-# Packages may add whatever they like to this file, but
-# should keep this content at the top.
-# ----------------------------------------------------------------------------
-from ._astropy_init import *
-# ----------------------------------------------------------------------------
+try:
+    __version__ = get_distribution(__name__).version
+except DistributionNotFound:
+    # package is not installed
+    __version__ = 'dev'
+    pass  # pragma: no cover
 
-if not _ASTROPY_SETUP_:
-    # For egg_info test builds to pass, put package imports here.
+del get_distribution, DistributionNotFound
 
-    from .phoenix import *
-    from .spectra import *
-    from .utils import *
-    from .masking import *
-    from .activity import *
-    from .spectral_type import *
+from .phoenix import *
+from .spectra import *
+from .utils import *
+from .masking import *
+from .activity import *
+from .spectral_type import *
