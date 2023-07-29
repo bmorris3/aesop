@@ -45,6 +45,6 @@ License
 
 This project is Copyright (c) Brett Morris & Trevor Dorn-Wallenstein and licensed under
 the terms of the MIT license. This package is based upon
-the `Astropy package template <https://github.com/astropy/package-template>`_
+the `Astropy package template <https://github.com/astropy/package-template>`__
 which is licensed under the BSD 3-clause licence. See the licenses folder for
 more information.

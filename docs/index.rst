@@ -9,7 +9,7 @@ aesop
 
 ``aesop`` is a data reduction toolkit for echelle spectra from the `Astrophysical
 Research Consortium (ARC) 3.5 m Telescope Echelle Spectrograph (ARCES)
-<http://www.apo.nmsu.edu/arc35m/Instruments/ARCES/>`_ at Apache Point
+<http://www.apo.nmsu.edu/arc35m/Instruments/ARCES/>`__ at Apache Point
 Observatory (APO). You can view the `source code and submit issues via GitHub
 <https://github.com/bmorris3/aesop>`_.
 
