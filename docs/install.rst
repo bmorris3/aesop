@@ -14,10 +14,9 @@ directory::
 
 Install ``aesop`` with::
 
-    python setup.py install
+    pip install .
 
 You can ensure that the package was installed successfully by running the tests
-from a Python interpreter with the following commands::
+from the command line with::
 
-    import aesop
-    aesop.test()
+    tox -e test
