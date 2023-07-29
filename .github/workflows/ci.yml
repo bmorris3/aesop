@@ -17,10 +17,13 @@ jobs:
     uses: OpenAstronomy/github-actions-workflows/.github/workflows/tox.yml@v1
     with:
       envs: |
-        - linux: test python 3.10
+        - name: test python 3.10
+          linux: test
           python-version: 3.10
-        - linux: test python 3.11
+        - name: test python 3.11
+          linux: test
           python-version: 3.11
-        - linux: test python 3.11 w/ remote data
+        - name: test python 3.11 w/ remote data
+          linux: test
           python-version: 3.11
           toxposargs: --remote-data
