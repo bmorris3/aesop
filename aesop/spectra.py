@@ -316,7 +316,7 @@ class EchelleSpectrum(object):
         self.time = time
 
     @classmethod
-    def from_fits(cls, path):
+    def from_fits(cls, path, format=None):
         """
         Load an echelle spectrum from a FITS file.
 
@@ -326,7 +326,7 @@ class EchelleSpectrum(object):
             Path to the FITS file
         """
         spectrum_list = [Spectrum1D.from_specutils(s)
-                         for s in SpectrumCollection.read(path)]
+                         for s in SpectrumCollection.read(path, format=format)]
         header = fits.getheader(path)
 
         name = header.get('OBJNAME', None)
@@ -928,7 +928,7 @@ def _poly_model(p, x):
     Polynomial model for lstsq continuum normalization
     """
     x_mean = x.mean()
-    return np.polyval(p, (x - x_mean).value)
+    return np.polyval(p, x - x_mean)
 
 
 def _residuals(p, x, y):

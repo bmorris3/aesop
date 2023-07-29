@@ -4,7 +4,6 @@ import numpy as np
 import astropy.units as u
 import pytest
 from astropy.units import UnitsError
-from astropy.tests.helper import remote_data
 from astropy.utils.data import download_file
 
 from ..spectra import Spectrum1D, EchelleSpectrum
@@ -25,20 +24,20 @@ def test_constructor():
                              flux=f)
 
 
-@remote_data
+@pytest.mark.remote_data
 def test_read_fits():
-    url = ('https://drive.google.com/uc?export=download&id='
-           '1vf8rNhAiUJ1NO9VkwZOhcK6avJICfETH')
+    url = ('https://stsci.box.com/shared/static/'
+           'mu4fa1fmq1lw8boem12e2umyi99skbdl.fits')
 
     path = download_file(url, show_progress=False)
 
-    echelle_spectrum = EchelleSpectrum.from_fits(path)
+    echelle_spectrum = EchelleSpectrum.from_fits(path, format='iraf')
 
     assert hasattr(echelle_spectrum, 'header')
     assert hasattr(echelle_spectrum, 'time')
     assert hasattr(echelle_spectrum, 'name')
     assert str(echelle_spectrum) == ('<EchelleSpectrum: 107 orders, '
-                                     '3506.8-10612.5 Angstrom>')
+                                     '3506.8-10612.4 Angstrom>')
 
     # There should be more flux in the 40th order (redder) than 0th (bluer)
     assert echelle_spectrum[40].flux.mean() > echelle_spectrum[0].flux.mean()
