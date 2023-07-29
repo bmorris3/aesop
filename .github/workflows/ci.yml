@@ -26,4 +26,4 @@ jobs:
         - name: test python 3.11 w/ remote data
           linux: test
           python-version: 3.11
-          toxposargs: --remote-data
+          posargs: --remote-data
