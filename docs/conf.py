@@ -53,9 +53,10 @@ __import__(project)
 package = sys.modules[project]
 
 # The full version, including alpha/beta/rc tags.
+release = __version__
 dev = "dev" in __version__
 # The short X.Y version.
-version = release = '.'.join(__version__.split('.')[:2])
+version = '.'.join(release.split('.')[:2])
 
 # -- Options for HTML output ---------------------------------------------------
 
@@ -89,7 +90,7 @@ version = release = '.'.join(__version__.split('.')[:2])
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = '{0} v{1}'.format(project, release)
+html_title = '{0} v{1}'.format(project, version)
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = project + 'doc'
