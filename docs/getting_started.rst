@@ -12,7 +12,6 @@ Contents
 * :ref:`getting_started-example`
 * :ref:`getting_started-norm`
 * :ref:`getting_started-combine`
-* :ref:`getting_started-alltogether`
 
 .. _getting_started-example:
 
