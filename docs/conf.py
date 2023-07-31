@@ -90,7 +90,7 @@ version = '.'.join(release.split('.')[:2])
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = '{0} v{1}'.format(project, version)
+html_title = '{0}'.format(project, version)
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = project + 'doc'
