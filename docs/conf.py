@@ -53,11 +53,9 @@ __import__(project)
 package = sys.modules[project]
 
 # The full version, including alpha/beta/rc tags.
-release = __version__
-dev = "dev" in release
+dev = "dev" in __version__
 # The short X.Y version.
-version = '.'.join(release.split('.')[:2])
-
+version = release = '.'.join(__version__.split('.')[:2])
 
 # -- Options for HTML output ---------------------------------------------------
 
