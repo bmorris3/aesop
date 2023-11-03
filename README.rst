@@ -13,6 +13,10 @@ ARC Echelle Spectroscopic Observation Pipeline (aesop)
     :target: http://www.astropy.org
     :alt: Powered by Astropy Badge
 
+.. image:: https://joss.theoj.org/papers/10.21105/joss.00854/status.svg
+    :target: https://doi.org/10.21105/joss.00854
+    :alt: Paper
+
 The ARC Echelle Spectroscopic Observation Pipeline, or ``aesop``, is a high resolution
 spectroscopy software toolkit tailored for observations from the `ARC Echelle Spectrograph (ARCES)
 <https://www.apo.nmsu.edu/arc35m/Instruments/ARCES/>`_ mounted on the
