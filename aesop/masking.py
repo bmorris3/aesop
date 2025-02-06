@@ -31,9 +31,10 @@ def get_spectrum_mask(spectrum, cutoff=1.5, plot=False):
         Mask that excludes channels greater than ``cuttoff``-sigma away from
         the peak flux.
     """
+    wavelength_ptp = np.ptp(spectrum.wavelength.value)
     initp = np.array([spectrum.flux.max().value,
                       spectrum.wavelength.mean().value,
-                      spectrum.wavelength.ptp().value/4])
+                      wavelength_ptp/4])
 
     bestp = fmin_l_bfgs_b(_chi2, initp[:],
                           approx_grad=True,
@@ -42,8 +43,8 @@ def get_spectrum_mask(spectrum, cutoff=1.5, plot=False):
                           bounds=[(0, np.inf),
                                   (spectrum.wavelength.min().value,
                                    spectrum.wavelength.max().value),
-                                  (spectrum.wavelength.ptp().value/8,
-                                   spectrum.wavelength.ptp().value/2)])[0]
+                                  (wavelength_ptp/8,
+                                   wavelength_ptp/2)])[0]
 
     best_a, best_x0, best_sigma = bestp
 
