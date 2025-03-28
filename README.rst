@@ -36,6 +36,10 @@ flux calibration.
 Installation
 ------------
 
+Install ``aesop`` with::
+
+    pip install aesop-arces
+
 You can install ``aesop`` from the source code by doing the following::
 
     git clone https://github.com/bmorris3/aesop.git

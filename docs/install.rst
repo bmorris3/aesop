@@ -6,8 +6,12 @@
 Installing aesop
 ****************
 
-Clone the ``aesop`` repository from GitHub, and go into the top-level ``aesop``
-directory::
+Install ``aesop`` with::
+
+    pip install aesop-arces
+
+To build from source, clone the ``aesop`` repository from GitHub,
+and go into the top-level ``aesop`` directory::
 
     git clone https://github.com/bmorris3/aesop
     cd aesop
