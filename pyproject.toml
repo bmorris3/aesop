@@ -1,5 +1,5 @@
 [project]
-name = "aesop"
+name = "aesop-arces"
 description = "Exposure time calculator for APO/ARCES"
 readme = "README.rst"
 requires-python = ">=3.9"
@@ -47,10 +47,9 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
+packages = ["aesop"]
 zip-safe = false
 include-package-data = true
-
-[tool.setuptools.packages.find]
 
 [tool.setuptools_scm]
 write_to = "aesop/version.py"
